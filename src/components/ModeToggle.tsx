@@ -11,7 +11,7 @@ import {
 
 export function ModeToggle() {
   const [theme, setThemeState] = useState<"theme-light" | "dark" | "system">(
-    "system"
+    "theme-light"
   );
 
   useEffect(() => {
