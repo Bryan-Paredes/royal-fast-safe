@@ -31,7 +31,7 @@ export default function NavBar() {
           <img
             src="/royal.webp"
             alt="Logo"
-            className="h-20 w-20 rounded-full object-contain"
+            className="h-10 w-10 rounded-full object-cover"
             decoding="async"
           />
         </a>

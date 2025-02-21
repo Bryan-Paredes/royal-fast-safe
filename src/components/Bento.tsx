@@ -8,7 +8,6 @@ import {
   IconTableColumn,
   IconGraph,
 } from "@tabler/icons-react";
-import Conversation from "@/assets/conversation.svg";
 import MultipleBeam from "./MultipleBeam";
 
 export default function BentoSection() {
@@ -46,8 +45,8 @@ const items = [
     header: (
       <span className="flex items-center justify-center w-full h-full">
         <img
-          src="/src/assets/experience.svg"
-          alt="conversation"
+          src="/about/experience.svg"
+          alt="Experience Image"
           className="w-50"
           decoding="async"
         />
@@ -74,8 +73,8 @@ const items = [
     header: (
       <span className="flex items-center justify-center w-full h-full">
         <img
-          src="/src/assets/conversation.svg"
-          alt="conversation"
+          src="/about/conversation.svg"
+          alt="Conversation Image"
           className="w-80"
           decoding="async"
         />
