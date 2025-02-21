@@ -3,6 +3,8 @@ import "@/styles/global.css";
 
 import NavBar from "@/sections/NavBar";
 import Footer from "@/sections/Footer.astro";
+
+const { Title, Description } = Astro.props;
 ---
 
 <script is:inline>
@@ -32,24 +34,25 @@ import Footer from "@/sections/Footer.astro";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" sizes="any" />
+    <link rel="icon" href="/favicon.png" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <meta name="description" content={Description} />
+    <title>{Title}</title>
   </head>
   <body>
-    <NavBar client:load />
+    <NavBar client:only />
     <slot />
-    <Footer />
+    <!-- <Footer /> -->
   </body>
 </html>
 
 <style is:global>
   html,
   body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
     font-family:
       "ClashGrotesk",
       sans-serif,
@@ -64,10 +67,12 @@ import Footer from "@/sections/Footer.astro";
       "Open Sans",
       "Helvetica Neue",
       sans-serif;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
   }
 
   .container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: auto;
     width: 100%;
   }
