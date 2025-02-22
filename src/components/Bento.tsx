@@ -12,7 +12,7 @@ import MultipleBeam from "./MultipleBeam";
 
 export default function BentoSection() {
   return (
-    <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[20rem] p-4">
+    <BentoGrid className="max-w-5xl  mx-auto md:auto-rows-[20rem] p-4">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
