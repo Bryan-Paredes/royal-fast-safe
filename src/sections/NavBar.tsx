@@ -29,9 +29,9 @@ export default function NavBar() {
       <div className="flex items-center justify-center">
         <a href="/">
           <img
-            src="/logo.svg"
+            src="/royal.webp"
             alt="Logo"
-            className="h-10 w-20 object-contain"
+            className="h-20 w-20 object-cover"
             decoding="async"
           />
         </a>
