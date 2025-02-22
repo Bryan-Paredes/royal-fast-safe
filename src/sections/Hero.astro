@@ -1,5 +1,7 @@
 ---
 import { Button } from "@/components/ui/button";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { InteractiveButton } from "@/components/ui/interactive-button";
 ---
 
 <header class="container text-center">
@@ -32,11 +34,13 @@ import { Button } from "@/components/ui/button";
             />
           </div>
         </div>
-        <h1
-          class="text-5xl md:text-7xl font-medium max-w-[65ch] text-white text-balance"
-        >
-          <span>Your Partner For Complex Logistics</span>
+        <h1 class="mb-8">
+          <TextGenerateEffect
+            client:load
+            words="Your Partner for Complex Logistics"
+          />
         </h1>
+
         <!-- <p class="text-xl text-left max-w-xl text-gray-300">
           We specialize in freight, heavy haul, and container shipping across
           the USA, Mexico, and Canada. Our expert team is dedicated to
@@ -45,13 +49,16 @@ import { Button } from "@/components/ui/button";
         </p> -->
       </div>
       <div class="flex items-center justify-center gap-5">
-        <Button asChild className="">
+        <!-- <Button asChild className="">
           <a
             href="/quote"
             class="rounded-2xl text-accent text-xl font-medium uppercase px-8 py-4 bg-[#262626] hover:bg-primary-600 hover:text-white transition-colors duration-200 ease-in-out"
             >Free Quote Now</a
           >
-        </Button>
+        </Button> -->
+        <InteractiveButton>
+          <a href="/quote" class="uppercase">Free Quote Now</a>
+        </InteractiveButton>
       </div>
     </div>
   </main>
