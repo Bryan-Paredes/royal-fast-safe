@@ -1,33 +1,54 @@
-<footer class="bg-background">
-  <div class="max-w-6xl mx-auto px-6 lg:px-0">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-      <div class="col-span-1 md:col-span-2 lg:col-span-1">
-        <h2 class="text-2xl font-bold tracking-tight text-primary">About Us</h2>
-        <p class="mt-6 text-lg text-muted-foreground">
-          We are a team of highly skilled and experienced professionals who are
-          dedicated to providing the best possible service to our customers. We
-          are committed to delivering high-quality products and services that
-          meet our customers' needs and exceed their expectations.
-        </p>
-      </div>
-      <div class="col-span-1 md:col-span-2 lg:col-span-1">
-        <h2 class="text-2xl font-bold tracking-tight text-primary">
-          Our Services
-        </h2>
-        <p class="mt-6 text-lg text-muted-foreground">
-          We offer a wide range of services to meet your needs. From shipping
-          and logistics to transportation and warehousing, we have the expertise
-          and resources to help you achieve your goals.
-        </p>
-      </div>
-      <div class="col-span-1 md:col-span-2 lg:col-span-1">
-        <h2 class="text-2xl font-bold tracking-tight text-primary">Our Team</h2>
-        <p class="mt-6 text-lg text-muted-foreground">
-          Our team of experts is made up of professionals with a wide range of
-          experience and expertise. We are committed to delivering the best
-          possible service to our customers.
-        </p>
-      </div>
+---
+import { routes } from "@/data/header";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandX,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
+---
+
+<footer
+  class="max-w-7xl bg-transparent border-t border-primary-300 text-gray-400 py-12 px-4 mt-10 mx-auto"
+>
+  <div class="max-w-6xl mx-auto flex flex-col items-center gap-8">
+    {/* Navigation Links */}
+    <nav class="flex flex-wrap justify-center gap-6 sm:gap-8">
+      {
+        routes.map((route) => (
+          <a
+            href={route.href}
+            class="text-foreground border-b hover:border-primary-500 transition-colors"
+          >
+            {route.title}
+          </a>
+        ))
+      }
+    </nav>
+
+    {/* Social Media Icons */}
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-gray-300 transition-colors">
+        <IconBrandFacebook className="h-5 w-5" />
+        <span class="sr-only">Facebook</span>
+      </a>
+      <a href="#" class="hover:text-gray-300 transition-colors">
+        <IconBrandInstagram className="h-5 w-5" />
+        <span class="sr-only">Instagram</span>
+      </a>
+      <a href="#" class="hover:text-gray-300 transition-colors">
+        <IconBrandX className="h-5 w-5" />
+        <span class="sr-only">Twitter</span>
+      </a>
+      <a href="#" class="hover:text-gray-300 transition-colors">
+        <IconBrandLinkedin className="h-5 w-5" />
+        <span class="sr-only">GitHub</span>
+      </a>
+    </div>
+
+    {/* Copyright */}
+    <div class="text-sm">
+      © {new Date().getFullYear()} Your Company, Inc. All rights reserved.
     </div>
   </div>
 </footer>
