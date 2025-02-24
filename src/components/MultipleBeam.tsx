@@ -7,6 +7,7 @@ import {
   IconMail,
   IconAppWindow,
   IconVideoPlus,
+  IconBrandMessenger,
 } from "@tabler/icons-react";
 
 // export default function MultipleBeam({ className }: { className?: string }) {
@@ -131,29 +132,29 @@ export default function MultipleBeam() {
       <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
-            <Icons.googleDrive />
+            <IconUser color="black" />
           </Circle>
           <Circle ref={div5Ref}>
-            <Icons.googleDocs />
+            <IconMail color="black" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div2Ref}>
-            <Icons.notion />
+            <IconAppWindow color="black" />
           </Circle>
           <Circle ref={div4Ref} className="size-16">
-            <Icons.openai />
+            <img src="/royal.webp" alt="Royal" className="h-full w-full" />
           </Circle>
           <Circle ref={div6Ref}>
-            <Icons.zapier />
+            <IconBrandWhatsapp color="black" />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div3Ref}>
-            <Icons.whatsapp />
+            <IconVideoPlus color="black" />
           </Circle>
           <Circle ref={div7Ref}>
-            <Icons.messenger />
+            <IconBrandMessenger color="black" />
           </Circle>
         </div>
       </div>
