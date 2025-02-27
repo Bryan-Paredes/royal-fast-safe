@@ -36,7 +36,6 @@ export default function ExperienceCarousel() {
       className="max-w-4xl h-full w-full mx-auto px-3"
       grabCursor
     >
-      {" "}
       {images.length > 0 ? (
         images.map(({ id, src }) => (
           <SwiperSlide key={id} className="px-3">
@@ -48,7 +47,7 @@ export default function ExperienceCarousel() {
               decoding="async"
               width={200}
               height={200}
-              className="object-cover object-center w-full h-1/2 rounded-2xl"
+              className="object-cover object-center w-full h-full rounded-2xl"
             />
           </SwiperSlide>
         ))
