@@ -1,0 +1,69 @@
+---
+const testimonials = [
+  {
+    avatar: "https://avatar.vercel.sh/jack",
+    name: "Martin escobar",
+    title: "Founder of meta",
+    quote:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae.",
+  },
+  {
+    avatar: "https://avatar.vercel.sh/jill",
+    name: "Angela stian",
+    title: "Product designer",
+    quote:
+      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+  },
+  {
+    avatar: "https://avatar.vercel.sh/john",
+    name: "Karim ahmed",
+    title: "DevOp engineer",
+    quote:
+      "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain.",
+  },
+];
+---
+
+<section class="py-8">
+  <div class="container px-4 md:px-8">
+    <h2 class="text-center text-base/7 font-semibold text-accent">Reviews</h2>
+    <div class="max-w-xl mx-auto text-center">
+      <h3
+        class="mx-auto my-3 text-center text-4xl font-medium tracking-tight text-balance text-foreground sm:text-5xl"
+      >
+        Customer Reviews
+      </h3>
+      <p class="text-gray-500 mt-3">
+        Description: See what our customers think! Real feedback on our products
+        and services—short, sweet, and straight from the source. Share your own
+        experience too!
+      </p>
+    </div>
+    <div class="mt-12">
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          testimonials.map((item, idx) => (
+            <li class="bg-gray-100 p-4 rounded-xl">
+              <figure>
+                <div class="flex items-center gap-x-4">
+                  <img src={item.avatar} class="w-16 h-16 rounded-full" />
+                  <div>
+                    <span class="block text-gray-800 font-semibold">
+                      {item.name}
+                    </span>
+                    <span class="block text-gray-600 text-sm mt-0.5">
+                      {item.title}
+                    </span>
+                  </div>
+                </div>
+                <blockquote>
+                  <p class="mt-6 text-gray-700">{item.quote}</p>
+                </blockquote>
+              </figure>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

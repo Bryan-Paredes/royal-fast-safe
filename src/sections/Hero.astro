@@ -4,14 +4,14 @@ import { InteractiveButton } from "@/components/ui/interactive-button";
 import { flags, type FlagImage } from "@/data/hero";
 ---
 
-<header class="container text-center">
+<header class="relative flex h-dvh w-full items-center justify-center">
   <main
-    class="bg-[url('/hero.webp')] h-[650px] mt-5 bg-cover bg-center rounded-lg pt-7 pb-28 drop-shadow-lg"
+    class="bg-[url('/hero.webp')] relative h-full w-full bg-cover bg-center pb-28 drop-shadow-lg"
   >
     <div
       class="flex flex-col h-full w-full items-center justify-center p-4 gap-11 mx-auto my-auto max-w-4xl"
     >
-      <div class="flex flex-col items-center justify-center gap-10">
+      <div class="flex flex-col items-center justify-center gap-10 text-center">
         <div class="sm:mb-8 flex justify-center">
           <div class="flex gap-6">
             {
