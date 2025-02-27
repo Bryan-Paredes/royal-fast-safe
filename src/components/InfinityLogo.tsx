@@ -1,4 +1,4 @@
-import { Marquee } from "@/components/magicui/marquee";
+import { Marquee } from "@/components/ui/marquee";
 import { logosGrid } from "@/data/logoGrid";
 
 export function SliceLogo() {
@@ -7,6 +7,7 @@ export function SliceLogo() {
       <Marquee>
         {logosGrid.map((logo) => (
           <img
+            key={logo.name}
             className="rounded-xl bg-white dark:bg-transparent dark:border p-3"
             width="150"
             alt={logo.name}
