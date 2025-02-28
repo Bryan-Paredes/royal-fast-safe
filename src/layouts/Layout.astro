@@ -44,7 +44,7 @@ const { Title, Description } = Astro.props;
     <title>{Title}</title>
   </head>
   <body>
-    <NavBar client:only />
+    <NavBar client:load />
     <slot />
     <Footer />
   </body>
