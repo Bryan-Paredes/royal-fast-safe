@@ -73,7 +73,7 @@ export default function AnimatedCounter({
         className
       )}
     >
-      <div className="flex flex-col items-center gap-6 p-8 rounded-xl border h-[200px] w-[300px]">
+      <div className="flex flex-col items-center gap-6 p-8 rounded-xl h-[150px] w-[250px]">
         <motion.div
           className={cn(
             "relative text-5xl font-bold text-foreground text-center tabular-nums",
