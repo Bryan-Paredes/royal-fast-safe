@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Mail, PanelRightClose, PhoneCall } from "lucide-react";
+import { IconLayoutSidebarLeftExpandFilled } from "@tabler/icons-react";
 import { ModeToggle } from "@/components/ModeToggle";
 import {
   Sheet,
@@ -148,7 +149,7 @@ export default function NavBar() {
                   size="icon"
                   className="rounded-full hover:text-white cursor-pointer"
                 >
-                  <PanelRightClose size={24} />
+                  <IconLayoutSidebarLeftExpandFilled size={24} />
                 </Button>
               </SheetTrigger>
               <SheetContent>
