@@ -1,13 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Controller, EffectFade, Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { images } from "@/data/carousel";
 import type { CSSProperties } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/controller";
-import "swiper/css/effect-fade";
-
 interface CustomCSSProperties extends CSSProperties {
   "--swiper-navigation-size"?: string;
   "--swiper-navigation-color"?: string;
@@ -26,13 +22,11 @@ export default function ExperienceCarousel() {
   return (
     <Swiper
       style={styles}
-      effect="fade"
       slidesPerView={1}
       spaceBetween={10}
       navigation={true}
       rewind={true}
-      pagination={{ clickable: false, dynamicBullets: true }}
-      modules={[Navigation, Pagination, Controller]}
+      modules={[Navigation]}
       className="max-w-4xl h-full w-full mx-auto px-3"
       grabCursor
     >
@@ -40,7 +34,6 @@ export default function ExperienceCarousel() {
         images.map(({ id, src }) => (
           <SwiperSlide key={id} className="px-3">
             <img
-              key={id}
               src={src}
               alt={`Experience image ${id}`}
               loading="lazy"
