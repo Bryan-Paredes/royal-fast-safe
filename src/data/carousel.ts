@@ -20,3 +20,26 @@ export const images = [
         src: "/slideImages/vantruck.webp",
     }
 ]
+
+export const otherServicesImages = [
+    {
+        id: 1,
+        src: '/otherServices/camionaje.webp',
+        title: 'Camionaje',
+    },
+    {
+        id: 2,
+        src: '/otherServices/contenedor.webp',
+        title: 'Contenedor',
+    },
+    {
+        id: 3,
+        src: '/otherServices/embarcacion.webp',
+        title: 'Embarcacion',
+    },
+    {
+        id: 4,
+        src: '/otherServices/fema2.webp',
+        title: 'FEMA',
+    }
+]
