@@ -1,4 +1,5 @@
 ---
+import MultipleBeam from "@/components/MultipleBeam";
 import Layout from "@/layouts/Layout.astro";
 import About from "@/sections/About.astro";
 import Experience from "@/sections/Experience.astro";
@@ -11,7 +12,7 @@ import Services from "@/sections/Services.astro";
 import Timeline from "@/sections/Timeline.astro";
 ---
 
-<Layout>
+<Layout title="Royal Fast & Safe" description="Royal Fast & Safe Home Page">
   <Hero />
   <Partners />
   <Services />
@@ -20,5 +21,6 @@ import Timeline from "@/sections/Timeline.astro";
   <Experience />
   <Reviews />
   <OtherServices />
+  <MultipleBeam client:visible />
   <!-- <About /> -->
 </Layout>

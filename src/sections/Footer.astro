@@ -1,67 +1,8 @@
----
-import MultipleBeam from "@/components/MultipleBeam";
-import { routes } from "@/data/header";
-import {
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandX,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
----
-
-<footer class="max-w-7xl bg-transparent text-gray-400 py-12 px-4 mt-10 mx-auto">
-  <h4 class="text-center text-base/7 font-semibold text-accent">
-    Get in Touch
-  </h4>
-  <!-- <h2
-    class="mx-auto my-3 text-center text-4xl font-medium tracking-tight text-balance text-foreground sm:text-5xl capitalize"
-  >
-    Our Specialized Services
-  </h2> -->
-  <MultipleBeam client:visible />
+<footer
+  class="flex-1 max-w-7xl w-full bg-transparent text-gray-400 py-12 px-4 mt-10 mx-auto"
+>
   <hr class="border-t border-primary-500 my-10" />
   <div class="text-base text-center my-10">
     &copy; {new Date().getFullYear()} Royal Fast & Safe - All rights reserved.
   </div>
-  <!--
-    <div
-    class="max-w-6xl mx-auto flex flex-col items-center gap-8"
-  >
-    <nav class="flex flex-wrap justify-center gap-6 sm:gap-8">
-      {
-        routes.map((route) => (
-          <a
-            href={route.href}
-            class="text-foreground border-b hover:border-primary-500 transition-colors"
-          >
-            {route.title}
-          </a>
-        ))
-      }
-    </nav>
-
-    {/* Social Media Icons */}
-    <div class="flex gap-6">
-      <a href="#" class="hover:text-gray-300 transition-colors">
-        <IconBrandFacebook className="h-5 w-5" />
-        <span class="sr-only">Facebook</span>
-      </a>
-      <a href="#" class="hover:text-gray-300 transition-colors">
-        <IconBrandInstagram className="h-5 w-5" />
-        <span class="sr-only">Instagram</span>
-      </a>
-      <a href="#" class="hover:text-gray-300 transition-colors">
-        <IconBrandX className="h-5 w-5" />
-        <span class="sr-only">Twitter</span>
-      </a>
-      <a href="#" class="hover:text-gray-300 transition-colors">
-        <IconBrandLinkedin className="h-5 w-5" />
-        <span class="sr-only">GitHub</span>
-      </a>
-    </div>
-
-    <div class="text-sm">
-      © {new Date().getFullYear()} Your Company, Inc. All rights reserved.
-    </div>
-  </MultipleBeam> -->
 </footer>

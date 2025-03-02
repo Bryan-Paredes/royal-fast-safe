@@ -1,10 +1,14 @@
 ---
 import "@/styles/global.css";
-
 import NavBar from "@/sections/NavBar";
 import Footer from "@/sections/Footer.astro";
 
-const { Title, Description } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
 ---
 
 <script is:inline>
@@ -12,7 +16,7 @@ const { Title, Description } = Astro.props;
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
+    return window.matchMedia("(prefers-color-scheme: light)").matches
       ? "dark"
       : "light";
   };
@@ -40,10 +44,10 @@ const { Title, Description } = Astro.props;
     <!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={Description} />
-    <title>{Title}</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <NavBar client:load />
     <slot />
     <Footer />
