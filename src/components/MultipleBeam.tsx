@@ -46,40 +46,70 @@ export default function MultipleBeam() {
     >
       <div className="flex size-full max-h-[250px] max-w-lg flex-col items-stretch justify-between gap-10">
         <div className="flex flex-row items-center justify-between">
-          <a href="" className="flex items-center justify-center">
+          <a
+            href="https://www.facebook.com/royalfastandsafetransportation"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+          >
             <Circle ref={div1Ref}>
-              <IconBrandFacebook color="black" />
+              <IconBrandFacebook color="currentColor" />
             </Circle>
           </a>
-          <a href="" className="flex items-center justify-center">
+          <h4 className="text-center text-base/7 font-semibold text-accent">
+            Get in Touch
+          </h4>
+          <a
+            href="https://www.linkedin.com/company/royal-fast-safe"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+          >
             <Circle ref={div5Ref}>
-              <IconBrandLinkedin color="black" />
+              <IconBrandLinkedin color="currentColor" />
             </Circle>
           </a>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <a href="/contact" className="flex items-center justify-center">
+          <a
+            href="mailto:info@royalfastandsafe.com"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+          >
             <Circle ref={div2Ref}>
-              <IconMail color="black" />
+              <IconMail color="currentColor" />
             </Circle>
           </a>
           <Circle ref={div4Ref} className="size-[75px]">
             <img src="/royal.webp" alt="Royal" className="h-full w-full" />
           </Circle>
-          <a href="" className="flex items-center justify-center">
+          <a
+            href="https://www.instagram.com/royal.fast_safe"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+          >
             <Circle ref={div6Ref}>
-              <IconBrandInstagram color="black" />
+              <IconBrandInstagram color="currentColor" />
             </Circle>
           </a>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <a href="" className="flex items-center justify-center">
+          <a
+            href="https://maps.app.goo.gl/cr8a6AzkfqWghLW77"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+          >
             <Circle ref={div3Ref}>
-              <IconMap2 color="black" />
+              <IconMap2 color="currentColor" />
             </Circle>
           </a>
           <a
-            href=""
+            href="https://m.me/royalfastandsafetransportation"
+            target="_blank"
+            rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
           >
             <Circle ref={div7Ref}>
