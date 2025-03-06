@@ -11,8 +11,8 @@ export const routes: { title: string; href: string }[] = [
     href: "#about",
   },
   {
-    title: "Blog",
-    href: "/blog",
+    title: "Newsroom",
+    href: "/newsroom",
   },
 ];
 
