@@ -35,11 +35,11 @@ export default function ServiceCard() {
             <CardDescription>{description}</CardDescription>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <InteractiveButton className="flex items-center gap-2 w-36 h-12 text-sm">
-              <a href={href} className="dark:text-white">
+            <a href={href} className="dark:text-white">
+              <InteractiveButton className="flex items-center gap-2 w-36 h-12 text-sm">
                 See More
-              </a>
-            </InteractiveButton>
+              </InteractiveButton>
+            </a>
           </CardFooter>
         </Card>
       ))}

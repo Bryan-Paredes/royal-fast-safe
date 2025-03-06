@@ -32,7 +32,7 @@ export function ModeToggle() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          size="icon"
+          size="default"
           className="bg-background border-none rounded-full hover:text-white transition-colors duration-100 ease-in-out cursor-pointer"
         >
           <Sun className="h-[2rem] w-[2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 " />
