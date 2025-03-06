@@ -54,7 +54,7 @@ export default function NavBar() {
             <img
               src="/royal.webp"
               alt="Logo"
-              className="h-20 w-20 object-cover object-center"
+              className="h-20 w-20 object-cover object-center rounded-full"
               loading="eager"
               decoding="async"
               width={100}
@@ -68,7 +68,7 @@ export default function NavBar() {
                   <img
                     src="/royal.webp"
                     alt="Logo"
-                    className="h-20 w-20 object-cover object-center"
+                    className="h-20 w-20 object-cover object-center rounded-full"
                     loading="eager"
                     decoding="async"
                   />
@@ -122,34 +122,33 @@ export default function NavBar() {
           </NavigationMenu>
           <div className="flex items-center justify-end space-x-2">
             <ModeToggle />
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full hover:text-white"
-            >
-              <a href="/">
-                <PhoneCall className="w-28 h-28" />
-              </a>
-            </Button>
-            <Button
-              variant="default"
-              size="default"
-              asChild
-              className="hidden md:flex uppercase items-center gap-2 px-4 py-2 rounded-lg bg-primary-400 hover:bg-primary-600 transition-colors duration-200 ease-in-out text-white/80"
-            >
-              <a href="/contact" className="">
-                <span className="font-medium uppercase">Contact</span>
-                <Mail size={18} strokeWidth={2} className="text-white/80" />
-              </a>
-            </Button>
+            <a href="tel:(888)4286329">
+              <Button
+                variant="outline"
+                size="default"
+                className="rounded-full hover:text-white cursor-pointer"
+              >
+                <PhoneCall size={36} />
+              </Button>
+            </a>
+            <a href="/contact" className="cursor-pointer">
+              <Button
+                variant="default"
+                size="default"
+                className="hidden md:flex capitalize text-lg items-center gap-2 px-4 py-2 rounded-lg bg-primary-400 hover:bg-primary-600 transition-colors duration-200 ease-in-out text-white/80 cursor-pointer"
+              >
+                <span className="font-medium">Contact</span>
+                <Mail size={24} strokeWidth={2} className="text-white/80" />
+              </Button>
+            </a>
             <Sheet>
-              <SheetTrigger className="flex md:hidden rounded-2xl">
+              <SheetTrigger className="flex md:hidden rounded-full">
                 <Button
                   variant="outline"
-                  size="icon"
+                  size="default"
                   className="rounded-full hover:text-white cursor-pointer"
                 >
-                  <IconLayoutSidebarLeftExpandFilled size={24} />
+                  <PanelRightClose size={24} className="w-36 h-36" />
                 </Button>
               </SheetTrigger>
               <SheetContent>
@@ -175,16 +174,19 @@ export default function NavBar() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="uppercase stroke-2 items-center gap-2 px-4 py-2 rounded-lg bg-primary-400 hover:bg-primary-600 hover:text-white transition-colors duration-200 ease-in-out text-white/80 mx-auto mt-3"
+                <a
+                  href="/contact"
+                  className="flex items-center justify-start gap-2 cursor-pointer"
                 >
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="capitalize text-lg stroke-2 items-center gap-2 px-4 py-2 rounded-lg bg-primary-400 hover:bg-primary-600 hover:text-white transition-colors duration-200 ease-in-out text-white/80 mx-auto mt-3 cursor-pointer"
+                  >
                     <span className="font-medium">Contact</span>
                     <Mail size={18} className="text-white/80" />
-                  </a>
-                </Button>
+                  </Button>
+                </a>
               </SheetContent>
             </Sheet>
           </div>

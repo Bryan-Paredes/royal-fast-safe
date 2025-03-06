@@ -40,15 +40,22 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <link rel="icon" href="/royal.webp" sizes="any" />
     <link rel="icon" href="/royal.webp" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="/NUEVO-LOGO.webp"
+      media="(prefers-color-scheme: dark)"
+      style="border-radius: 50%;"
+    />
     <link rel="apple-touch-icon" href="/royal.webp" />
-    <!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
+    <meta property="og:image" content="/royal.webp" />
+    <meta property="twitter:image" content="/royal.webp" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
   <body class="flex flex-col min-h-screen">
-    <NavBar client:load />
+    <NavBar client:only />
     <slot />
     <Footer />
   </body>
