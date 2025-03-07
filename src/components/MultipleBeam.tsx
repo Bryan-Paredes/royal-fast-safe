@@ -7,8 +7,10 @@ import {
   IconBrandInstagram,
   IconBrandFacebook,
   IconBrandLinkedin,
+  IconBrandX,
   IconMap2,
 } from "@tabler/icons-react";
+import { Icon } from "lucide-react";
 
 const CircleS = forwardRef<
   HTMLDivElement,
@@ -107,13 +109,13 @@ export default function MultipleBeam() {
             </Circle>
           </a>
           <a
-            href="https://m.me/royalfastandsafetransportation"
+            href="https://x.com/royalfast_safe"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
           >
             <Circle ref={div7Ref}>
-              <IconBrandMessenger color="currentColor" />
+              <IconBrandX color="currentColor" />
             </Circle>
           </a>
         </div>

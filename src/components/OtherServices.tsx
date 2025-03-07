@@ -47,9 +47,9 @@ export default function SlideOtherServices() {
                 decoding="async"
                 width={200}
                 height={200}
-                className="object-cover object-bottom w-36 h-36 mx-auto rounded-2xl"
+                className="object-cover object-center absolute bottom-10 left-0 right-0 w-36 h-36 m-auto rounded-2xl"
               />
-              <figcaption className="absolute bottom-0 left-0 right-0 text-center text-lg font-medium text-black dark:text-white bg-primary-700/50 backdrop-blur-2xl backdrop-filter p-2 rounded-b-2xl">
+              <figcaption className="absolute top-0 left-0 right-0 text-center text-lg font-medium text-black dark:text-white bg-primary-700/50 backdrop-blur-2xl backdrop-filter p-2 rounded-2xl">
                 {title}
               </figcaption>
             </SwiperSlide>

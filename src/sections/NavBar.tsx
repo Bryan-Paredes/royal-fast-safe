@@ -52,8 +52,8 @@ export default function NavBar() {
         >
           <a href="/" className="block md:hidden">
             <img
-              src="/royal.webp"
-              alt="Logo"
+              src="/logoRoyal.svg"
+              alt="Logo Royal Fast and Safe"
               className="h-20 w-20 object-cover object-center rounded-full"
               loading="eager"
               decoding="async"
@@ -66,8 +66,8 @@ export default function NavBar() {
               <NavigationMenuItem>
                 <NavigationMenuLink href="/">
                   <img
-                    src="/royal.webp"
-                    alt="Logo"
+                    src="/logoRoyal.svg"
+                    alt="Logo Royal Fast and Safe"
                     className="h-20 w-20 object-cover object-center rounded-full"
                     loading="eager"
                     decoding="async"

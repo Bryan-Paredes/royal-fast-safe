@@ -12,10 +12,9 @@ interface CustomCSSProperties extends CSSProperties {
 }
 
 const styles: CustomCSSProperties = {
-  "--swiper-navigation-size": "30px",
-  "--swiper-navigation-color": "#C2B24E",
-  "--swiper-pagination-color": "white",
-  "--swiper-navigation-color-background": "black",
+  "--swiper-navigation-size": "33px",
+  "--swiper-navigation-color": "primary",
+  "--swiper-navigation-color-background": "white",
 };
 
 export default function ExperienceCarousel() {
