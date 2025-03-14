@@ -1,5 +1,6 @@
 ---
 import ServiceCard from "@/components/ServiceCard";
+import { services } from "@/data/services";
 ---
 
 <section class="container">
@@ -9,5 +10,5 @@ import ServiceCard from "@/components/ServiceCard";
   >
     We can handle any heavy transport
   </h2>
-  <ServiceCard />
+  <ServiceCard service={services} />
 </section>

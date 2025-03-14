@@ -1,5 +1,3 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,15 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { services, type Service } from "@/data/header";
+import { type Service } from "@/data/services";
 import { InteractiveButton } from "./ui/interactive-button";
 
-export default function ServiceCard() {
+export default function ServiceCard({ service }: { service: Service[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5 px-4">
-      {services.map(({ title, href, description, image }: Service) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5 px-4 items-center justify-center">
+      {service.map(({ title, description, image }: Service) => (
         <Card
-          className="w-full h-full shadow-none hover:shadow-sm hover:shadow-primary-400 hover:scale-[103%] transition-all duration-200 ease-in"
+          className="bg-primary-500/35 dark:bg-zinc-800 w-full h-full shadow-none hover:shadow-sm hover:shadow-primary-400 hover:scale-[103%] transition-all duration-200 ease-in-out"
           key={title}
         >
           <CardHeader className="flex items-center justify-center gap-4">
@@ -25,22 +23,17 @@ export default function ServiceCard() {
               alt={title}
               width={40}
               height={40}
-              className="w-20 h-20"
+              className="w-20 h-20 object-center object-cover"
               decoding="async"
               loading="lazy"
             />
-            <CardTitle className="text-lg">{title}</CardTitle>
+            <CardTitle className="text-xl text-center">{title}</CardTitle>
           </CardHeader>
-          <CardContent className="flex-1/2">
-            <CardDescription>{description}</CardDescription>
+          <CardContent className="">
+            <CardDescription className="text-gray-600 dark:text-gray-200 text-base flex-1">
+              {description}
+            </CardDescription>
           </CardContent>
-          <CardFooter className="flex justify-between">
-            <a href={href} className="dark:text-white">
-              <InteractiveButton className="flex items-center gap-2 w-36 h-12 text-sm">
-                See More
-              </InteractiveButton>
-            </a>
-          </CardFooter>
         </Card>
       ))}
     </div>
