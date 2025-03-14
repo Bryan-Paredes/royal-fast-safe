@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Mail, PanelRightClose, PhoneCall } from "lucide-react";
-import { IconLayoutSidebarLeftExpandFilled } from "@tabler/icons-react";
 import { ModeToggle } from "@/components/ModeToggle";
 import {
   Sheet,
@@ -22,7 +21,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { routes, services } from "@/data/header";
+import { services } from "@/data/services";
+import { routes } from "@/data/header";
 import { motion } from "framer-motion";
 
 export default function NavBar() {
