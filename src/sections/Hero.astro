@@ -1,7 +1,7 @@
 ---
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { InteractiveButton } from "@/components/ui/interactive-button";
-import { flags, type FlagImage } from "@/data/hero";
+import { ArrowDown } from "lucide-react";
 ---
 
 <header class="relative flex h-dvh w-full items-center justify-center">
@@ -12,39 +12,22 @@ import { flags, type FlagImage } from "@/data/hero";
       class="flex flex-col h-full w-full items-center justify-center p-4 gap-11 mx-auto my-auto max-w-4xl"
     >
       <div class="flex flex-col items-center justify-center gap-10 text-center">
-        <div class="sm:mb-8 flex justify-center">
-          <div class="flex gap-6">
-            {
-              flags.map((flag: FlagImage) => (
-                <img
-                  src={flag.src}
-                  alt={flag.alt}
-                  class="h-9 w-9"
-                  decoding="async"
-                  loading="eager"
-                />
-              ))
-            }
-          </div>
-        </div>
-        <h1 class="mb-8">
+        <h1 class="my-8">
           <TextGenerateEffect
             client:load
             words="Your Partner for Complex Logistics"
           />
         </h1>
-        <!-- <p class="text-xl text-left max-w-xl text-gray-300">
-          We specialize in freight, heavy haul, and container shipping across
-          the USA, Mexico, and Canada. Our expert team is dedicated to
-          delivering reliable and efficient logistics services tailored to your
-          unique needs.
-        </p> -->
       </div>
       <div class="flex items-center justify-center gap-5">
         <a href="/quote" class="uppercase dark:text-white">
           <InteractiveButton> Free Quote Now </InteractiveButton>
         </a>
       </div>
+      <ArrowDown
+        size={48}
+        className="md:hidden text-primary-500 dark:text-primary-400 animate-bounce mt-20"
+      />
     </div>
   </main>
 </header>

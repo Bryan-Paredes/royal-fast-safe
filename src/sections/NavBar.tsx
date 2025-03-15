@@ -24,6 +24,7 @@ import {
 import { services } from "@/data/services";
 import { routes } from "@/data/header";
 import { motion } from "framer-motion";
+import { flags, type FlagImage } from "@/data/hero";
 
 export default function NavBar() {
   const [scrolling, setScrolling] = useState(false);
@@ -52,7 +53,7 @@ export default function NavBar() {
         >
           <a href="/" className="block md:hidden">
             <img
-              src="/logoRoyal.svg"
+              src="/royal.webp"
               alt="Logo Royal Fast and Safe"
               className="h-20 w-20 object-cover object-center rounded-full"
               loading="eager"
@@ -62,53 +63,22 @@ export default function NavBar() {
             />
           </a>
           <NavigationMenu>
-            <NavigationMenuList className="hidden md:flex">
+            <NavigationMenuList className="hidden md:flex items-center justify-center">
               <NavigationMenuItem>
                 <NavigationMenuLink href="/">
                   <img
-                    src="/logoRoyal.svg"
+                    src="/royal.webp"
                     alt="Logo Royal Fast and Safe"
-                    className="h-20 w-20 object-cover object-center rounded-full"
+                    className="h-25 w-25 object-cover object-center rounded-full"
                     loading="eager"
                     decoding="async"
+                    width={100}
+                    height={100}
                   />
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              <NavigationMenuItem className="text-lg">
-                <NavigationMenuLink
-                  className={`px-4 py-2 font-medium hover:bg-primary-500 rounded-lg hover:text-white ${
-                    scrolling ? "text-black dark:text-white" : "text-white"
-                  }`}
-                  href="/about"
-                >
-                  About
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="text-lg">
-                <NavigationMenuTrigger
-                  className={`hover:text-white bg-transparent ${
-                    scrolling ? "text-black dark:text-white" : "text-white"
-                  }`}
-                >
-                  Services
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {services.map(({ title, href, description }) => (
-                      <ListItem
-                        className="hover:text-white"
-                        key={title}
-                        title={title}
-                        href={href}
-                      >
-                        {description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="text-lg">
-                <a href="/docs">
+              <NavigationMenuItem className="text-lg mr-2">
+                <a href="/blog">
                   <NavigationMenuLink
                     className={`px-4 py-2 font-medium hover:bg-primary-500 rounded-lg hover:text-white ${
                       scrolling ? "text-black dark:text-white" : "text-white"
@@ -118,6 +88,19 @@ export default function NavBar() {
                   </NavigationMenuLink>
                 </a>
               </NavigationMenuItem>
+              <div className=" flex items-center justify-center">
+                <div className="flex gap-6">
+                  {flags.map((flag: FlagImage) => (
+                    <img
+                      src={flag.src}
+                      alt={flag.alt}
+                      className="h-9 w-9"
+                      decoding="async"
+                      loading="eager"
+                    />
+                  ))}
+                </div>
+              </div>
             </NavigationMenuList>
           </NavigationMenu>
           <div className="flex items-center justify-end space-x-2">
@@ -163,17 +146,19 @@ export default function NavBar() {
                     </li>
                   ))}
                 </ul>
-                <SheetHeader className="my-3">
-                  <SheetTitle className="text-left">Services</SheetTitle>
-                  <hr className="border-primary-300" />
-                </SheetHeader>
-                <ul className="flex flex-col gap-3 p-2 ">
-                  {services.map((service) => (
-                    <li key={service.title}>
-                      <a href={service.href}>{service.title}</a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="my-10 flex items-center justify-center">
+                  <div className="flex gap-6">
+                    {flags.map((flag: FlagImage) => (
+                      <img
+                        src={flag.src}
+                        alt={flag.alt}
+                        className="h-9 w-9"
+                        decoding="async"
+                        loading="eager"
+                      />
+                    ))}
+                  </div>
+                </div>
                 <a
                   href="/contact"
                   className="flex items-center justify-start gap-2 cursor-pointer"
