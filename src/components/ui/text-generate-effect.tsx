@@ -39,7 +39,7 @@ export const TextGenerateEffect = ({
               key={word + idx}
               className=" opacity-0"
               style={{
-                filter: filter ? "blur(10px)" : "none",
+                filter: filter ? "blur(5px)" : "none",
               }}
             >
               {word}{" "}
@@ -52,8 +52,8 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("font-bold", className)}>
-      <div className="mt-4">
-        <div className="text-3xl md:text-7xl font-medium max-w-[70ch] text-white text-balance">
+      <div className="mt-20">
+        <div className="text-6xl text-center md:text-7xl font-medium max-w-[70ch] text-white text-balance">
           {renderWords()}
         </div>
       </div>

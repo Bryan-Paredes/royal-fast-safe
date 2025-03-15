@@ -8,15 +8,15 @@ export function SliceLogo() {
         {logosGrid.map((logo) => (
           <img
             key={logo.name}
-            className="rounded-xl bg-white dark:bg-transparent dark:border p-3"
+            className="rounded-xl bg-white dark:bg-zinc-700 dark:border p-3 object-contain object-center w-40 h-24"
             width="150"
             alt={logo.name}
             src={logo.logo}
+            decoding="async"
+            loading="lazy"
           />
         ))}
       </Marquee>
-      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div> */}
     </div>
   );
 }

@@ -13,7 +13,7 @@ interface CustomCSSProperties extends CSSProperties {
 
 const styles: CustomCSSProperties = {
   "--swiper-navigation-size": "33px",
-  "--swiper-navigation-color": "primary",
+  "--swiper-navigation-color": "white",
   "--swiper-navigation-color-background": "white",
 };
 
@@ -21,8 +21,8 @@ export default function ExperienceCarousel() {
   return (
     <Swiper
       style={styles}
-      slidesPerView={1}
-      spaceBetween={10}
+      slidesPerView={1.1}
+      spaceBetween={5}
       navigation={true}
       rewind={true}
       modules={[Navigation]}
