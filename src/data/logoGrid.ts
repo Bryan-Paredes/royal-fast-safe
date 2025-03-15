@@ -25,8 +25,8 @@ export const logosGrid: LogoGrid[] = [
     },
     {
         id: 4,
-        name: "Equipment Facts",
-        logo: "/logosGrid/equipment-facts.webp",
+        name: "Machinery Trader",
+        logo: "/logosGrid/machinery-trader.webp",
 
     },
     {
@@ -49,8 +49,13 @@ export const logosGrid: LogoGrid[] = [
     },
     {
         id: 8,
-        name: "Sam Gov",
-        logo: "/logosGrid/sam-gov.webp",
+        name: "Truck Paper",
+        logo: "/logosGrid/truck-paper.webp",
 
     },
+    {
+        id: 9,
+        name: "Purple Wave",
+        logo: "/logosGrid/purple-wave.webp",
+    }
 ]

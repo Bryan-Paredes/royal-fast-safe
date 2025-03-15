@@ -1,7 +1,7 @@
 export interface Service {
     title: string;
     href: string;
-    description: string;
+    description?: string;
     image: string;
 }
 
@@ -54,71 +54,51 @@ export const otherServices: Service[] = [
     {
         title: "Hazmat",
         href: "/service/hazmat",
-        description:
-            "We can handle any heavy transport, including hazmat, and we're the only company to offer this service.",
         image: "/services/hazmat.webp",
     },
     {
         title: "Warehousing",
         href: "/service/warehousing",
-        description:
-            "We can handle any heavy transport, including warehousing, and we're the only company to offer this service.",
         image: "/services/warehousing.webp",
     },
     {
         title: "Customs",
         href: "/service/customs",
-        description:
-            "We can handle any heavy transport, including customs, and we're the only company to offer this service.",
         image: "/services/customs.webp",
     },
     {
-        title: "Bonded",
+        title: "Bond",
         href: "/service/bonded",
-        description:
-            "We can handle any heavy transport, including bonded, and we're the only company to offer this service.",
         image: "/services/bonded.webp",
     },
     {
         title: "Insured",
         href: "/service/insured",
-        description:
-            "We can handle any heavy transport, including insured, and we're the only company to offer this service.",
         image: "/services/insured.webp",
     },
     {
         title: "Emergency Assitance Government Contracting",
         href: "/service/emergency-assistance-government-contracting",
-        description:
-            "We can handle any heavy transport, including emergency assistance government contracting, and we're the only company to offer this service.",
         image: "/services/fema.webp",
     },
     {
         title: "Crane and Rigging",
         href: "/service/crane-and-rigging",
-        description:
-            "We can handle any heavy transport, including crane and rigging, and we're the only company to offer this service.",
         image: "/services/rigging.webp",
     },
     {
         title: "Heavy Duty Towtruck Wrecker Rotator",
         href: "/service/heavy-duty-towtruck-wrecker-rotator",
-        description:
-            "We can handle any heavy transport, including heavy duty towtruck wrecker rotator, and we're the only company to offer this service.",
         image: "/services/towtruck.webp",
     },
     {
         title: "International Overseas",
         href: "/service/international-overseas",
-        description:
-            "We can handle any heavy transport, including international overseas, and we're the only company to offer this service.",
         image: "/services/overseas.webp",
     },
     {
         title: "Certificate & Inspection",
         href: "/service/certificate-and-inspection",
-        description:
-            "We can handle any heavy transport, including certificate and inspection, and we're the only company to offer this service.",
         image: "/services/certificate.webp",
     }
 ]
