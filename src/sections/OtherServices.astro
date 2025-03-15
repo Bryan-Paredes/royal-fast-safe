@@ -1,7 +1,5 @@
 ---
 import SlideOtherServices from "@/components/OtherServices";
-import ServiceCard from "@/components/ServiceCard";
-import { otherServices } from "@/data/services";
 ---
 
 <section class="py-8">
@@ -20,7 +18,6 @@ import { otherServices } from "@/data/services";
         equipment transportation, call Heavy Haulers today!
       </p>
     </div>
-    <!-- <SlideOtherServices client:visible /> -->
-    <ServiceCard service={otherServices} />
+    <SlideOtherServices client:visible />
   </div>
 </section>

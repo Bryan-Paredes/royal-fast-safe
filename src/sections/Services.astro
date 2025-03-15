@@ -10,5 +10,9 @@ import { services } from "@/data/services";
   >
     We can handle any heavy transport
   </h2>
-  <ServiceCard service={services} />
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5 px-4 items-center justify-center"
+  >
+    <ServiceCard service={services} />
+  </div>
 </section>
