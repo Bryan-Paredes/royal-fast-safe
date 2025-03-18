@@ -53,7 +53,7 @@ export default function NavBar() {
         >
           <a href="/" className="block md:hidden">
             <img
-              src="/royal.webp"
+              src="/logoRoyal.webp"
               alt="Logo Royal Fast and Safe"
               className="h-20 w-20 object-cover object-center rounded-full"
               loading="eager"
@@ -67,9 +67,9 @@ export default function NavBar() {
               <NavigationMenuItem>
                 <NavigationMenuLink href="/">
                   <img
-                    src="/royal.webp"
+                    src="/logoRoyal.webp"
                     alt="Logo Royal Fast and Safe"
-                    className="h-25 w-25 object-cover object-center rounded-full"
+                    className="h-28 w-32 object-cover object-center rounded-full"
                     loading="eager"
                     decoding="async"
                     width={100}
@@ -77,7 +77,7 @@ export default function NavBar() {
                   />
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              <NavigationMenuItem className="text-lg mr-2">
+              {/* <NavigationMenuItem className="text-lg mr-2">
                 <a href="/blog">
                   <NavigationMenuLink
                     className={`px-4 py-2 font-medium hover:bg-primary-500 rounded-lg hover:text-white ${
@@ -87,9 +87,9 @@ export default function NavBar() {
                     Newsroom
                   </NavigationMenuLink>
                 </a>
-              </NavigationMenuItem>
-              <div className=" flex items-center justify-center">
-                <div className="flex gap-6">
+              </NavigationMenuItem> */}
+              <div className=" flex items-center justify-center ">
+                <div className="flex gap-6 ">
                   {flags.map((flag: FlagImage) => (
                     <img
                       src={flag.src}

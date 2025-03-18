@@ -21,7 +21,7 @@ export default function ShippingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-4xl mx-auto mt-24 p-8 space-y-8"
+      className="max-w-4xl mx-auto mt-32 p-8 space-y-8 border rounded-xl"
     >
       <Toaster richColors />
       <div className="flex items-center justify-start gap-2 hover:-translate-x-1 hover:text-primary-600 w-fit transition-transform duration-200 cursor-pointer">
@@ -258,7 +258,7 @@ export default function ShippingForm() {
           className="mt-8 w-full md:w-auto bg-primary-700 text-white"
         >
           <Loader2 className="animate-spin" />
-          Loading...
+          Submitting...
         </Button>
       ) : (
         <Button
