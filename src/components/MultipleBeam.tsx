@@ -3,14 +3,12 @@ import React, { forwardRef, useRef } from "react";
 import { AnimatedBeam, Circle } from "./ui/beam";
 import {
   IconMail,
-  IconBrandMessenger,
   IconBrandInstagram,
   IconBrandFacebook,
   IconBrandLinkedin,
   IconBrandX,
   IconMap2,
 } from "@tabler/icons-react";
-import { Icon } from "lucide-react";
 
 const CircleS = forwardRef<
   HTMLDivElement,
@@ -20,7 +18,7 @@ const CircleS = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-1 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
         className
       )}
     >
@@ -43,7 +41,7 @@ export default function MultipleBeam() {
 
   return (
     <div
-      className="relative flex h-[300px] w-full items-center justify-center overflow-hidden p-10"
+      className="relative flex h-[310px] w-full items-center justify-center overflow-hidden p-10"
       ref={containerRef}
     >
       <div className="flex size-full max-h-[250px] max-w-lg flex-col items-stretch justify-between gap-10">
@@ -83,8 +81,12 @@ export default function MultipleBeam() {
               <IconMail color="currentColor" />
             </Circle>
           </a>
-          <Circle ref={div4Ref} className="size-[75px]">
-            <img src="/royal.webp" alt="Royal" className="h-full w-full" />
+          <Circle ref={div4Ref} className="size-[95px]">
+            <img
+              src="/logoRoyal.svg"
+              alt="Royal"
+              className="h-full w-full rounded-full"
+            />
           </Circle>
           <a
             href="https://www.instagram.com/royal.fast_safe"
