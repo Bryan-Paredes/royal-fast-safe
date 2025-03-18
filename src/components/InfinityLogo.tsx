@@ -8,8 +8,8 @@ export function SliceLogo() {
         {logosGrid.map((logo) => (
           <img
             key={logo.name}
-            className="rounded-xl bg-white dark:bg-zinc-700 dark:border p-3 object-contain object-center w-40 h-24"
-            width="150"
+            className="rounded-xl bg-white dark:bg-zinc-700 dark:border p-3 object-contain object-center w-48 h-24"
+            width="200"
             alt={logo.name}
             src={logo.logo}
             decoding="async"
