@@ -10,42 +10,42 @@ export const services: Service[] = [
         title: "Heavy Equipment",
         href: "/service/heavy-equipment",
         description:
-            "We ship freight of any size, weight, or shape, including agricultural equipment and oversize loads—just let us know what you need!",
+            "Bulldozers, Cranes, SkidSteer, etc...",
         image: "/services/camion-de-carga.webp",
     },
     {
         title: "Container / Freight Shipping",
         href: "/service/container",
         description:
-            "We offer custom container shipping solutions, with Total Fast and Safe being a top industry mover.",
+            "Cargo, ISO, Flat Rack, High Cube, etc...",
         image: "/services/envase.webp",
     },
     {
         title: "Power Only / Drive Away",
         href: "/service/power-only",
         description:
-            "If you need Power Only services, we will use our Semi Trucks to low your trailers.",
+            "Semi, Dump Truck, Mobile Cranes, etc...",
         image: "/services/remolque.webp",
     },
     {
         title: "Boats / Maritime Shipping",
         href: "/service/boat",
         description:
-            "Small or large boat, we treat your boat as if it's our own! Licensed to transport your vessel Fast and Safe.",
+            "Amphibious, Boat, Floating, Yacht, Barges, etc...",
         image: "/services/yate.webp",
     },
     {
         title: "RV / 5th Wheel",
         href: "/service/rv-5th-wheel-shipping",
         description:
-            "RV & Travel Trailer, we can carry the weight, ramps, center reel and winch, All equipment for the haul.",
+            "Class C, 5th-Wheel, Teardrop, etc...",
         image: "/services/remolque-2.webp",
     },
     {
         title: "Complex Logistics / Project",
         href: "/service/complicated-logistics",
         description:
-            "We manage heavy equipment hauling and complex logistics, delivering your cargo efficiently—just share your goals!",
+            "Inoperable Equipment, Super Loads, Oversize, Seamless Freight Solutions",
         image: "/services/camion-grua.webp",
     },
 ];
