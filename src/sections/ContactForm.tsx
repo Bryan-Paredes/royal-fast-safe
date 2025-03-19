@@ -16,14 +16,23 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting, errors },
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     console.log(data);
     try {
-      toast.success("Form submitted successfully!");
-      confetti();
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Form submitted successfully!");
+        confetti();
+        reset();
+      }
     } catch (error) {
       toast.error("Error submitting form please try again!");
     }
