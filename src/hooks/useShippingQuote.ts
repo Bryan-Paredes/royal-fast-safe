@@ -82,19 +82,28 @@ export function useShippingQuote() {
 
     // Manejador para enviar el formulario
     const handleSubmit = useCallback(
-        (e: React.FormEvent) => {
+        (e: React.FormEvent) => async () => {
             e.preventDefault()
             try {
+                const response = await fetch("/api/quote", {
+                    method: "POST",
+                    body: JSON.stringify(formData),
+                });
                 setIsLoading(true)
-                console.log("Form submitted:", formData)
-                toast.success("Form submitted successfully!")
+
+                if (response.ok) {
+                    console.log("Form submitted:", formData)
+                    toast.success("Form submitted successfully!")
+                    confetti()
+                    setFormData(initialFormData)
+                    setIsLoading(false)
+                }
 
             } catch (error) {
                 console.log("Error submitting form:", error)
                 toast.error("Error submitting form please try again!")
 
             } finally {
-                confetti()
                 setIsLoading(false)
             }
             // Aquí iría la lógica para enviar los datos al servidor
