@@ -1,45 +1,47 @@
-export const images = [
+export const ExperienceImages = [
     {
         id: 1,
         src: "/slideImages/Grovecrane.webp",
+        data: {
+            from: "Grove",
+            to: "Crane",
+            equipment: "Crane",
+        }
     },
     {
         id: 2,
         src: "/slideImages/mathsmti.webp",
+        data: {
+            from: "Grove",
+            to: "Crane",
+            equipment: "Crane",
+        }
     },
     {
         id: 3,
         src: "/slideImages/13Items.webp",
+        data: {
+            from: "Grove",
+            to: "Crane",
+            equipment: "Crane",
+        }
     },
     {
         id: 4,
         src: "/slideImages/Loaded.webp",
+        data: {
+            from: "Grove",
+            to: "Crane",
+            equipment: "Crane",
+        }
     },
     {
         id: 5,
         src: "/slideImages/vantruck.webp",
-    }
-]
-
-export const otherServicesImages = [
-    {
-        id: 1,
-        src: '/otherServices/camionaje.webp',
-        title: 'Camionaje',
-    },
-    {
-        id: 2,
-        src: '/otherServices/contenedor.webp',
-        title: 'Contenedor',
-    },
-    {
-        id: 3,
-        src: '/otherServices/embarcacion.webp',
-        title: 'Embarcacion',
-    },
-    {
-        id: 4,
-        src: '/otherServices/fema2.webp',
-        title: 'FEMA',
+        data: {
+            from: "Grove",
+            to: "Crane",
+            equipment: "Crane",
+        }
     }
 ]

@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import type { CSSProperties } from "react";
-import { otherServicesImages } from "@/data/carousel";
 import ServiceCard from "./ServiceCard";
 import { otherServices } from "@/data/services";
 
@@ -28,7 +27,7 @@ export default function SlideOtherServices() {
       <Swiper
         style={styles}
         slidesPerView={2}
-        spaceBetween={10}
+        spaceBetween={5}
         navigation={true}
         rewind={true}
         modules={[Navigation]}
@@ -37,7 +36,11 @@ export default function SlideOtherServices() {
       >
         {otherServices.map((service) => (
           <SwiperSlide key={service.title}>
-            <ServiceCard service={[service]} />
+            <ServiceCard
+              service={[service]}
+              className="w-30 h-30"
+              classCard="hover:scale-3d"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
