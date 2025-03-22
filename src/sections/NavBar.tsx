@@ -3,12 +3,9 @@ import { forwardRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Mail, PanelRightClose, PhoneCall } from "lucide-react";
@@ -16,15 +13,13 @@ import { ModeToggle } from "@/components/ModeToggle";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { services } from "@/data/services";
 import { routes } from "@/data/header";
 import { motion } from "framer-motion";
-import { flags, type FlagImage } from "@/data/hero";
+import { flags, type FlagImage } from "@/data/flags";
 
 export default function NavBar() {
   const [scrolling, setScrolling] = useState(false);
@@ -47,13 +42,13 @@ export default function NavBar() {
         <div
           className={`flex w-full mx-auto items-center justify-between max-w-7xl mt-1 rounded-xl px-5 transition-all duration-300 ${
             scrolling
-              ? "bg-background shadow-lg dark:shadow-gray-400/30"
+              ? "bg-white/40 backdrop-blur-lg shadow-lg dark:shadow-gray-400/30"
               : "bg-transparent shadow-none"
           } `}
         >
           <a href="/" className="block md:hidden">
             <img
-              src="/logoRoyal.webp"
+              src="/royal.webp"
               alt="Logo Royal Fast and Safe"
               className="h-20 w-20 object-cover object-center rounded-full"
               loading="eager"
@@ -67,7 +62,7 @@ export default function NavBar() {
               <NavigationMenuItem>
                 <NavigationMenuLink href="/">
                   <img
-                    src="/logoRoyal.webp"
+                    src="/royal.webp"
                     alt="Logo Royal Fast and Safe"
                     className="h-28 w-32 object-cover object-center rounded-full"
                     loading="eager"
@@ -77,21 +72,24 @@ export default function NavBar() {
                   />
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              {/* <NavigationMenuItem className="text-lg mr-2">
-                <a href="/blog">
-                  <NavigationMenuLink
-                    className={`px-4 py-2 font-medium hover:bg-primary-500 rounded-lg hover:text-white ${
-                      scrolling ? "text-black dark:text-white" : "text-white"
-                    }`}
-                  >
-                    Newsroom
-                  </NavigationMenuLink>
-                </a>
-              </NavigationMenuItem> */}
-              <div className=" flex items-center justify-center ">
+              <NavigationMenuItem className="text-lg mr-2 hidden lg:flex">
+                {routes.map((route) => (
+                  <a href={route.href} key={route.title}>
+                    <NavigationMenuLink
+                      className={`px-4 py-2 font-medium hover:bg-primary-500 rounded-lg hover:text-white ${
+                        scrolling ? "text-black dark:text-white" : "text-white"
+                      }`}
+                    >
+                      {route.title}
+                    </NavigationMenuLink>
+                  </a>
+                ))}
+              </NavigationMenuItem>
+              <div className=" items-center justify-center hidden xl:flex animate-fade-out">
                 <div className="flex gap-6 ">
                   {flags.map((flag: FlagImage) => (
                     <img
+                      key={flag.alt}
                       src={flag.src}
                       alt={flag.alt}
                       className="h-9 w-9"
@@ -112,6 +110,7 @@ export default function NavBar() {
                 className="rounded-full hover:text-white cursor-pointer"
               >
                 <PhoneCall size={36} />
+                <span className="hidden md:block">(888) 428-6329</span>
               </Button>
             </a>
             <a href="/contact" className="cursor-pointer">
@@ -141,7 +140,10 @@ export default function NavBar() {
                 </SheetHeader>
                 <ul className="flex flex-col gap-3 p-2">
                   {routes.map((route) => (
-                    <li key={route.title}>
+                    <li
+                      key={route.title}
+                      className="p-2 hover:bg-slate-200 rounded-lg cursor-pointer"
+                    >
                       <a href={route.href}>{route.title}</a>
                     </li>
                   ))}
@@ -150,6 +152,7 @@ export default function NavBar() {
                   <div className="flex gap-6">
                     {flags.map((flag: FlagImage) => (
                       <img
+                        key={flag.alt}
                         src={flag.src}
                         alt={flag.alt}
                         className="h-9 w-9"
