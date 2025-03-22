@@ -1,27 +1,11 @@
 ---
 import ExperienceCarousel from "@/components/ExperienceCarousel";
+import SectionTitle from "@/components/SectionTitle.astro";
 ---
 
-<section class="py-8">
+<section class="">
   <div class="container px-4 md:px-8">
-    <h2 class="text-center text-base/7 font-semibold text-accent">
-      Experience
-    </h2>
-    <div class="max-w-xl mx-auto text-center">
-      <h3
-        class="mx-auto my-3 text-center text-4xl font-medium tracking-tight text-balance text-foreground sm:text-5xl"
-      >
-        Our Expertise in Heavy Haul Transportation
-      </h3>
-      <p class="text-gray-400 mt-3">
-        Royal Fast and Safe offers extensive expertise in heavy haul and
-        oversized freight transportation, with a skilled team ensuring precise,
-        safe, and compliant logistics solutions for complex and time-sensitive
-        shipments.
-      </p>
-    </div>
+    <SectionTitle title="Our Expertise in Heavy Haul" />
   </div>
-  <div class="mt-12 flex justify-center">
-    <ExperienceCarousel client:load />
-  </div>
+  <ExperienceCarousel client:load />
 </section>

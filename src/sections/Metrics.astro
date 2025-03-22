@@ -1,14 +1,10 @@
 ---
 import Counter from "@/components/Counter";
+import SectionTitle from "@/components/SectionTitle.astro";
 ---
 
 <section class="container">
-  <h4 class="text-center text-base/7 font-semibold text-accent">Metrics</h4>
-  <h2
-    class="mx-auto my-3 text-center text-4xl font-medium tracking-tight text-balance text-foreground sm:text-5xl capitalize"
-  >
-    Driving Our Success
-  </h2>
+  <SectionTitle title="Driving our Success" />
   <div class="bg-[#D5D4D4] dark:bg-background border py-5 mx-5 rounded-2xl">
     <Counter client:visible />
   </div>

@@ -1,15 +1,11 @@
 ---
+import SectionTitle from "@/components/SectionTitle.astro";
 import ServiceCard from "@/components/ServiceCard";
 import { services } from "@/data/services";
 ---
 
 <section class="container">
-  <h4 class="text-center text-base/7 font-semibold text-accent">Services</h4>
-  <h2
-    class="mx-auto my-3 text-center text-4xl font-medium tracking-tight text-balance text-foreground sm:text-5xl capitalize"
-  >
-    We can handle any heavy transport
-  </h2>
+  <SectionTitle title="Our Services" />
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5 px-4 items-center justify-center"
   >

@@ -1,36 +1,29 @@
 ---
 import TestimonialSlide from "@/components/Testimonial";
 import { InteractiveButton } from "@/components/ui/interactive-button";
+import SectionTitle from "@/components/SectionTitle.astro";
 ---
 
 <section class="py-8">
   <div class="container px-4 md:px-8">
-    <h2 class="text-center text-base/7 font-semibold text-accent">Reviews</h2>
-    <div class="max-w-xl mx-auto text-center">
-      <h3
-        class="mx-auto my-3 text-center text-4xl font-medium tracking-tight text-balance text-foreground sm:text-5xl"
-      >
-        Customer Reviews
-      </h3>
-      <p class="text-gray-500 mt-3">
-        See what our customers think! Real feedback of our services, short,
-        sweet, and straight from the source. Share your own experience too!
-      </p>
-    </div>
-    <div class="mt-12">
-      <TestimonialSlide />
-    </div>
-    <div class="flex justify-center">
-      <a
-        href="https://www.google.com/maps/place/Royal+Fast+N+Safe+Transportation/@40.286858,-111.6400711,17z/data=!4m8!3m7!1s0x874d9133c2843289:0x4133270a027d2e15!8m2!3d40.286858!4d-111.6374962!9m1!1b1!16s%2Fg%2F11h5mcsqxh?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
-        target="_blank"
-        rel="noreferrer"
-        class="dark:text-white"
-      >
-        <InteractiveButton className="h-14 text-base">
-          View All Reviews
-        </InteractiveButton>
-      </a>
-    </div>
+    <SectionTitle
+      title="SUCCESS STORIES"
+      description="See what our customers think! Real feedback of our services, short, sweet, and straight from the source. Share your own experience too!"
+    />
+  </div>
+  <div class="mt-12">
+    <TestimonialSlide />
+  </div>
+  <div class="flex justify-center">
+    <a
+      href="https://www.google.com/maps/place/Royal+Fast+N+Safe+Transportation/@40.286858,-111.6400711,17z/data=!4m8!3m7!1s0x874d9133c2843289:0x4133270a027d2e15!8m2!3d40.286858!4d-111.6374962!9m1!1b1!16s%2Fg%2F11h5mcsqxh?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+      target="_blank"
+      rel="noreferrer"
+      class="dark:text-white"
+    >
+      <InteractiveButton className="h-14 text-base">
+        View All Reviews
+      </InteractiveButton>
+    </a>
   </div>
 </section>

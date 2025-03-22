@@ -1,18 +1,32 @@
 ---
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { InteractiveButton } from "@/components/ui/interactive-button";
-import { ArrowDown } from "lucide-react";
 import HeroSection from "@/components/Hero";
+import { flags, type FlagImage } from "@/data/flags";
+import Mouse from "@/assets/mouse.svg";
 ---
 
 <header class="relative flex h-dvh w-full items-center justify-center">
   <main class="h-full w-full bg-cover bg-center pb-28 shadow-lg">
     <HeroSection client:load />
     <div
-      class="absolute top-0 left-0 right-0 flex flex-col h-full w-full items-center justify-center p-4 gap-11 mx-auto my-auto max-w-4xl z-20"
+      class="absolute top-16 left-0 right-0 flex flex-col h-full w-full items-center justify-center p-4 gap-11 mx-auto my-auto max-w-4xl z-20"
     >
-      <div class="flex flex-col items-center justify-center gap-10 text-center">
-        <h1 class="">
+      <div class="flex flex-col items-center justify-center gap-1 text-center">
+        <div class="flex gap-6 xl:hidden animate-fade-in delay-200">
+          {
+            flags.map((flag: FlagImage) => (
+              <img
+                src={flag.src}
+                alt={flag.alt}
+                class="h-9 w-9"
+                decoding="async"
+                loading="eager"
+              />
+            ))
+          }
+        </div>
+        <h1 class="uppercase">
           <TextGenerateEffect
             client:load
             words="Your Partner for Complex Logistics"
@@ -20,7 +34,7 @@ import HeroSection from "@/components/Hero";
         </h1>
       </div>
       <div class="flex items-center justify-center gap-5">
-        <a href="/quote" class="dark:text-white">
+        <a href="/quote" class="dark:text-white cursor-pointer">
           <InteractiveButton
             className="text-2xl uppercase dark:text-white font-medium"
           >
@@ -28,10 +42,7 @@ import HeroSection from "@/components/Hero";
           </InteractiveButton>
         </a>
       </div>
-      <ArrowDown
-        size={48}
-        className="md:hidden text-primary-500 dark:text-primary-400 animate-bounce mt-20"
-      />
+      <Mouse class="block md:hidden animate-fa" />
     </div>
   </main>
 </header>
