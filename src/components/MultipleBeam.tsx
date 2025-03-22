@@ -41,7 +41,7 @@ export default function MultipleBeam() {
 
   return (
     <div
-      className="relative flex h-[310px] w-full items-center justify-center overflow-hidden p-10"
+      className="relative flex h-[310px] w-full items-center justify-center overflow-hidden p-10 my-16"
       ref={containerRef}
     >
       <div className="flex size-full max-h-[250px] max-w-lg flex-col items-stretch justify-between gap-10">
@@ -83,7 +83,7 @@ export default function MultipleBeam() {
           </a>
           <Circle ref={div4Ref} className="size-[95px]">
             <img
-              src="/logoRoyal.svg"
+              src="/royal.webp"
               alt="Royal"
               className="h-full w-full rounded-full"
             />
