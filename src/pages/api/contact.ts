@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     try {
         const { data, error } = await resend.emails.send({
-            from: "Royal Fast & Safe <luis@royalfastandsafe.com>",
+            from: "Royal Fast & Safe <info@royalfastandsafe.com>",
             to: ["info@royalfastandsafe.com"],
             subject: "New Contact Request",
             html: emailContent,
