@@ -1,12 +1,12 @@
 
 import type React from "react"
 import { useState, useEffect, useCallback } from "react"
-import type { FormData } from "@/types/location"
-import { fetchLocationByZipCode } from "@/api/zip-code"
+import type { QuoteData } from "@/types/location"
+import { fetchLocationByZipCode } from "@/utils/zip-code"
 import { toast } from "sonner"
 import confetti from "canvas-confetti"
 
-const initialFormData: FormData = {
+export const initialFormData: QuoteData = {
     name: "",
     phone: "",
     email: "",
@@ -28,7 +28,7 @@ const initialFormData: FormData = {
 
 export function useShippingQuote() {
     // Estado inicial del formulario
-    const [formData, setFormData] = useState<FormData>(initialFormData)
+    const [zipCode, setZipCode] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     // Función para actualizar la ubicación basada en el código postal
@@ -36,7 +36,7 @@ export function useShippingQuote() {
         if (zipCode.length === 5) {
             const locationInfo = await fetchLocationByZipCode(zipCode)
             if (locationInfo) {
-                setFormData((prev) => ({
+                setZipCode((prev) => ({
                     ...prev,
                     [section]: {
                         ...prev[section],
@@ -81,35 +81,37 @@ export function useShippingQuote() {
     }, [])
 
     // Manejador para enviar el formulario
-    const handleSubmit = useCallback(
-        (e: React.FormEvent) => async () => {
-            e.preventDefault()
-            try {
-                const response = await fetch("/api/quote", {
-                    method: "POST",
-                    body: JSON.stringify(formData),
-                });
-                setIsLoading(true)
+    // const handleSubmit = useCallback(
+    //     (e: React.FormEvent) => async () => {
+    //         e.preventDefault()
+    //         console.log("Submitting form with data:", formData);
 
-                if (response.ok) {
-                    console.log("Form submitted:", formData)
-                    toast.success("Form submitted successfully!")
-                    confetti()
-                    setFormData(initialFormData)
-                    setIsLoading(false)
-                }
+    //         try {
+    //             const response = await fetch("/api/quote", {
+    //                 method: "POST",
+    //                 body: JSON.stringify(formData),
+    //             });
+    //             setIsLoading(true)
 
-            } catch (error) {
-                console.log("Error submitting form:", error)
-                toast.error("Error submitting form please try again!")
+    //             if (response.ok) {
+    //                 console.log("Form submitted:", formData)
+    //                 toast.success("Form submitted successfully!")
+    //                 confetti()
+    //                 setFormData(initialFormData)
+    //                 setIsLoading(false)
+    //             }
 
-            } finally {
-                setIsLoading(false)
-            }
-            // Aquí iría la lógica para enviar los datos al servidor
-        },
-        [formData],
-    )
+    //         } catch (error) {
+    //             console.log("Error submitting form:", error)
+    //             toast.error("Error submitting form please try again!")
+
+    //         } finally {
+    //             setIsLoading(false)
+    //         }
+    //         // Aquí iría la lógica para enviar los datos al servidor
+    //     },
+    //     [formData],
+    // )
 
     // Efecto para actualizar la ciudad y estado cuando cambia el código postal de "Ship From"
     useEffect(() => {
@@ -130,7 +132,7 @@ export function useShippingQuote() {
         isLoading,
         handleChange,
         handleCheckboxChange,
-        handleSubmit,
+
     }
 }
 

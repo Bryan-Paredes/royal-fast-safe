@@ -43,7 +43,7 @@ export const TimelineData = [
     ),
   },
   {
-    title: "Oversized Loads !",
+    title: "Oversized Loads",
     content: (
       <div>
         <div className="flex flex-col py-5 gap-2 text-center items-start justify-evenly">
@@ -101,7 +101,8 @@ export const TimelineData = [
     ),
   },
   {
-    title: "Dedicated, Partial Load, LTL, Freight Shipping",
+    title:
+      "FULL TRUCKLOAD TRANSPORT, LESS THAN TRUCKOAD (LTL), FREIGHT SHIPPING",
     content: (
       <div>
         <p className="flex items-center gap-3 text-neutral-800 dark:text-neutral-200 text-xs md:text-base font-normal mb-8 text-balance">

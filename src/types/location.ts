@@ -2,27 +2,18 @@
 export type LocationInfo = {
     city: string
     state: string
+    postalCode: string
     country: string
 }
 
 // Tipo para los datos del formulario
-export type FormData = {
+export interface QuoteData {
     name: string
     phone: string
     email: string
     message: string
-    shipFrom: {
-        city: string
-        state: string
-        postalCode: string
-        country: string
-    }
-    shipTo: {
-        city: string
-        state: string
-        postalCode: string
-        country: string
-    }
+    shipFrom: LocationInfo
+    shipTo: LocationInfo
     agreeToSMS: boolean
 }
 
