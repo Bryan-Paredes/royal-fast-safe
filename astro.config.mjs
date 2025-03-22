@@ -9,6 +9,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   experimental: {
     svg: {
       mode: "sprite",
