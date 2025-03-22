@@ -28,6 +28,7 @@ export async function fetchLocationByZipCode(zipCode: string): Promise<LocationI
 
         if (data && data.places && data.places.length > 0) {
             return {
+                postalCode: zipCode,
                 city: data.places[0]["place name"],
                 state: data.places[0].state,
                 country: data.country

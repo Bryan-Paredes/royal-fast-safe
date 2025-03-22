@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { useForm, Controller, type SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast, Toaster } from "sonner";
 import confetti from "canvas-confetti";
 

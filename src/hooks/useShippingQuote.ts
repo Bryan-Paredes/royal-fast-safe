@@ -2,7 +2,7 @@
 import type React from "react"
 import { useState, useEffect, useCallback } from "react"
 import type { QuoteData } from "@/types/location"
-import { fetchLocationByZipCode } from "@/utils/zip-code"
+import { fetchLocationByZipCode } from "@/api/zip-code"
 import { toast } from "sonner"
 import confetti from "canvas-confetti"
 
@@ -28,18 +28,22 @@ export const initialFormData: QuoteData = {
 
 export function useShippingQuote() {
     // Estado inicial del formulario
+    const [formData, setFormData] = useState<QuoteData>(initialFormData)
     const [zipCode, setZipCode] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     // Función para actualizar la ubicación basada en el código postal
     const updateLocation = useCallback(async (section: "shipFrom" | "shipTo", zipCode: string) => {
+
+        type SectionKey = "shipFrom" | "shipTo"
+
         if (zipCode.length === 5) {
             const locationInfo = await fetchLocationByZipCode(zipCode)
             if (locationInfo) {
                 setZipCode((prev) => ({
                     ...prev,
                     [section]: {
-                        ...prev[section],
+                        ...prev,
                         city: locationInfo.city,
                         state: locationInfo.state,
                         country: locationInfo.country,
