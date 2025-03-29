@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const emailContent = `
-        <h1>🙎🏻‍♂️ ${firstName} ${lastName}</h1>
+        <h1>${firstName} ${lastName}</h1>
         <h3>🔤 Message:</h3>
         <p>${message}</p>
         <h3>📞 Phone Number:</h3>

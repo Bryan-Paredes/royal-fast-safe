@@ -1,18 +1,19 @@
-export const routes: { title: string; href: string }[] = [
+export const routes: { title: string; href: string, soon?: boolean }[] = [
   {
-    title: "Home",
-    href: "/",
+    title: "HOME",
+    href: "/#home",
   },
   {
-    title: "Services",
+    title: "SERVICES",
     href: "/#services",
   },
   {
-    title: "Experience",
+    title: "EXPERIENCE",
     href: "/#experience",
   },
-  {
-    title: "Newsroom",
-    href: "/newsroom",
-  },
+  // {
+  //   title: "NEWSROOM",
+  //   href: "/newsroom",
+  //   soon: true,
+  // },
 ];
