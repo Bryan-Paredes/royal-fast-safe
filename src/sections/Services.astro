@@ -1,14 +1,36 @@
 ---
 import SectionTitle from "@/components/SectionTitle.astro";
-import ServiceCard from "@/components/ServiceCard";
-import { services } from "@/data/services";
+import { services, type Service } from "@/data/services";
+import { Image } from "astro:assets";
 ---
 
-<section class="container">
+<section class="container" id="services">
   <SectionTitle title="Our Services" />
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5 px-4 items-center justify-center"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 py-3 items-center justify-center my-5"
   >
-    <ServiceCard service={services} />
+    {
+      services.map(({ title, description, image }: Service) => (
+        <div
+          class={`bg-primary-500/35 dark:bg-zinc-800 flex flex-col items-center justify-center w-full h-full shadow-none hover:shadow-sm hover:shadow-primary-400 hover:scale-[102%] transition-all duration-200 ease-in-out gap-3 rounded-2xl px-8 py-6`}
+        >
+          <header class="flex flex-col items-center justify-center gap-6">
+            <Image
+              src={image}
+              alt={title}
+              width={40}
+              height={40}
+              class={`w-20 h-20 object-center object-cover`}
+              decoding="async"
+              loading="lazy"
+            />
+            <h2 class="text-xl text-center font-semibold">{title}</h2>
+          </header>
+          <p class="text-gray-600 dark:text-gray-200 text-base flex-1 my-2">
+            {description}
+          </p>
+        </div>
+      ))
+    }
   </div>
 </section>
