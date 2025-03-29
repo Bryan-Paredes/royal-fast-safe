@@ -51,19 +51,21 @@ export default function MultipleBeam() {
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+            aria-label="Visit our Facebook page"
           >
             <Circle ref={div1Ref}>
               <IconBrandFacebook color="currentColor" />
             </Circle>
           </a>
-          <h4 className="text-center text-base/7 font-semibold text-accent">
+          <h3 className="text-center text-base/7 font-semibold text-accent">
             Get in Touch
-          </h4>
+          </h3>
           <a
             href="https://www.linkedin.com/company/royal-fast-safe"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+            aria-label="Visit our LinkedIn page"
           >
             <Circle ref={div5Ref}>
               <IconBrandLinkedin color="currentColor" />
@@ -76,6 +78,7 @@ export default function MultipleBeam() {
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+            aria-label="Send an email to info@royalfastandsafe.com"
           >
             <Circle ref={div2Ref}>
               <IconMail color="currentColor" />
@@ -84,7 +87,7 @@ export default function MultipleBeam() {
           <Circle ref={div4Ref} className="size-[95px]">
             <img
               src="/royal.webp"
-              alt="Royal"
+              alt="Royal Fast & Safe Logo"
               className="h-full w-full rounded-full"
             />
           </Circle>
@@ -93,6 +96,7 @@ export default function MultipleBeam() {
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+            aria-label="Visit our Instagram page"
           >
             <Circle ref={div6Ref}>
               <IconBrandInstagram color="currentColor" />
@@ -105,6 +109,7 @@ export default function MultipleBeam() {
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+            aria-label="Visit our location on Google Maps"
           >
             <Circle ref={div3Ref}>
               <IconMap2 color="currentColor" />
@@ -115,6 +120,7 @@ export default function MultipleBeam() {
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center text-black hover:text-primary-500 transition-colors duration-200"
+            aria-label="Visit our X page (formerly Twitter)"
           >
             <Circle ref={div7Ref}>
               <IconBrandX color="currentColor" />

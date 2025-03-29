@@ -86,6 +86,7 @@ export default function SliderExperience() {
                         > */}
                         <InteractiveButton
                           className="text-foreground hover:text-white"
+                          aria-label={`View Equipment Details of ${image.equipment.name}`}
                           onClick={() => setSelectedImage(image.imageUrl)}
                         >
                           View Equipment Details
