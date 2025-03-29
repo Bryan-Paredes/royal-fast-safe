@@ -1,0 +1,46 @@
+---
+import { routes } from "@/data/header";
+---
+
+<nav class="hidden lg:flex gap-8 text-sm">
+  {
+    routes.map(({ title, href, soon }, key) => (
+      <a
+        href={href}
+        class:list={[
+          "hover:text-primary-300 py-1 border-b-2 border-b-transparent transition hover:border-b-primary-600 font-semibold text-lg",
+          "active:border-b-javascript",
+        ]}
+        id={`navdesk-link-${key}`}
+      >
+        <button
+          disabled={soon}
+          class={`cursor-pointer ${soon && "opacity-50 cursor-not-allowed"}`}
+        >
+          {title}
+          {soon && (
+            <span class="text-primary-300 relative top-0 left-0">Soon</span>
+          )}
+        </button>
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .active {
+    border-bottom-color: #b29e40;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll('a[id^="navdesk-link-"]');
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        links.forEach((l) => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  });
+</script>
