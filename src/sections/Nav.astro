@@ -32,9 +32,10 @@ const textColor = pathname !== "/" ? "text-foreground" : "text-white";
     </div>
     <div class="flex flex-1/2 items-center justify-end gap-4 mr-6 z-40">
       <ModeToggle client:load />
-      <a href="" class="">
+      <a href="tel:+18884286329">
         <button
           class="bg-background text-foreground hover:bg-primary-600 hover:text-white px-4 py-2 rounded-full flex items-center cursor-pointer gap-2 transition-colors duration-300"
+          aria-label="Call us"
         >
           <PhoneCallIcon size={19} />
           <span class="hidden lg:flex">(888) 428-6329</span>
