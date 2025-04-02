@@ -6,7 +6,7 @@ import { reviews } from "@/data/reviews";
 
 export default function TestimonialSlide() {
   return (
-    <div className="relative flex w-full h-[250px] flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex max-w-5xl h-full flex-col items-center justify-center overflow-hidden mx-auto">
       <Marquee pauseOnHover className="[--duration:60s] gap-2">
         {reviews.map(({ img, name, body, rating, href }, index) => (
           <figure
