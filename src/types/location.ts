@@ -4,6 +4,7 @@ export type LocationInfo = {
     state: string
     postalCode: string
     country: string
+    manualEdit: boolean
 }
 
 // Tipo para los datos del formulario
@@ -14,6 +15,7 @@ export interface QuoteData {
     message: string
     shipFrom: LocationInfo
     shipTo: LocationInfo
+    weight: string
     agreeToSMS: boolean
 }
 
