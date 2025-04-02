@@ -84,9 +84,9 @@ export default function MultipleBeam() {
               <IconMail color="currentColor" />
             </Circle>
           </a>
-          <Circle ref={div4Ref} className="size-[95px]">
+          <Circle ref={div4Ref} className="size-[100px]">
             <img
-              src="/royal.webp"
+              src="/logoRoyal.webp"
               alt="Royal Fast & Safe Logo"
               className="h-full w-full rounded-full"
             />

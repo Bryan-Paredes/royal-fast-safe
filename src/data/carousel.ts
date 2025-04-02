@@ -21,20 +21,20 @@ export const ExperienceImages: SlideData[] = [
     },
     {
         id: 2,
-        imageUrl: "/slideImages/Doosan.webp",
+        imageUrl: "/slideImages/VermerTG7000.webp",
         from: {
-            city: "Parowan",
-            state: "UT",
+            city: "Carbondale",
+            state: "PA",
         },
         to: {
-            city: "Conchas",
-            state: "NM",
+            city: "Orting",
+            state: "WA",
         },
         equipment: {
-            name: "Hydraulic Excavator",
-            model: "Doosan DX225LC",
-            weight: "52,800 lbs",
-            dimensions: "31' L x 10.5' W x 9.6' H",
+            name: "Vermer TG7000",
+            model: "Tub Grinder",
+            weight: "80,000 lbs",
+            dimensions: "46' L x 11.9' W x 13.5' H",
         },
     },
     {
