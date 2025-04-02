@@ -21,7 +21,6 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log(data);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
