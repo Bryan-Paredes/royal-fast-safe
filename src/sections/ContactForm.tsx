@@ -3,6 +3,7 @@ import { Loader2 } from "lucide-react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast, Toaster } from "sonner";
 import confetti from "canvas-confetti";
+import { usePhoneFormatter } from "@/hooks/usePhoneFormatter";
 
 export interface FormData {
   firstName: string;
@@ -17,8 +18,11 @@ export default function ContactForm() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { isSubmitting, errors },
   } = useForm<FormData>();
+
+  const { handlePhoneChange } = usePhoneFormatter();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
@@ -153,19 +157,10 @@ export default function ContactForm() {
                 value: true,
                 message: "Phone number is required",
               },
-              minLength: {
-                value: 5,
-                message: "Minimum length is 5 characters",
-              },
-              maxLength: {
-                value: 8,
-                message: "Maximum length is 8 characters",
-              },
-              // pattern: {
-              //   value: /^((\\+1)?\\s?\\(\\d{3}\\)\\s?\\d{3}\\-\\d{4})?$/,
-              //   message: "Invalid phone number",
-              // },
             })}
+            onChange={(e) =>
+              setValue("phone", handlePhoneChange(e.target.value))
+            }
             aria-invalid={errors.phone ? "true" : "false"}
             className="w-full px-4 py-3 bg-dark-deeper border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-foreground"
           />
@@ -186,14 +181,6 @@ export default function ContactForm() {
           <textarea
             {...register("message", {
               required: "Message is required",
-              minLength: {
-                value: 10,
-                message: "Minimum length is 10 characters",
-              },
-              maxLength: {
-                value: 100,
-                message: "Maximum length is 100 characters",
-              },
             })}
             aria-invalid={errors.message ? "true" : "false"}
             rows={4}
