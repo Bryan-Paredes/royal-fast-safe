@@ -2,12 +2,24 @@
 import "@/styles/global.css";
 import Footer from "@/sections/Footer.astro";
 import Nav from "@/sections/Nav.astro";
+import SEO from "@/components/SEO.astro";
 interface Props {
-  title: string;
-  description: string;
+  seo: {
+    title: string;
+    description: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogType?: string;
+    ogUrl?: string;
+    ogImage?: string;
+    twitterTitle?: string;
+    twitterDescription?: string;
+    twitterImage?: string;
+    canonicalURL?: string;
+  };
 }
 
-const { title, description } = Astro.props;
+const { seo } = Astro.props;
 ---
 
 <script is:inline>
@@ -37,47 +49,13 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/logoRoyal.svg" sizes="any" />
-    <link rel="icon" href="/logoRoyal.svg" type="image/svg+xml" />
-    <link
-      rel="icon"
-      href="/logoRoyal.svg"
-      media="(prefers-color-scheme: dark)"
-      style="border-radius: 50%;"
-    />
-    <link rel="apple-touch-icon" href="/logoRoyal.svg" />
-
-    <meta property="og:title" content="Royal Fast & Safe Transport" />
-    <meta
-      property="og:description"
-      content="Royal Fast & Safe: Heavy and oversized haul solutions. Efficient, safe logistics for machinery and more. Fast and reliable!"
-    />
-    <meta
-      property="og:image"
-      content="https://royal-fast-safe.vercel.app/og.jpg"
-    />
-    <meta property="og:url" content="https://royalfastandsafe.com" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Royal Fast & Safe Transport" />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:site" content="@royal-fast-safe" />
-    <meta property="twitter:creator" content="@royal-fast-safe" />
-    <meta property="twitter:title" content="Royal Fast & Safe Transport" />
-    <meta
-      property="twitter:image"
-      content="https://royal-fast-safe.vercel.app/og.jpg"
-    />
-    <meta
-      property="twitter:description"
-      content="Royal Fast & Safe: Heavy and oversized haul solutions. Efficient, safe logistics for machinery and more. Fast and reliable!"
-    />
-
+    <link rel="icon" href="/logoRoyal.webp" sizes="any" />
+    <link rel="icon" href="/logoRoyal.webp" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="apple-icon" href="/logo.png" />
+    <SEO {...seo} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
   </head>
   <body class="flex flex-col min-h-screen">
     <Nav />

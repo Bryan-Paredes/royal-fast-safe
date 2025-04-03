@@ -3,7 +3,23 @@ import Layout from "@/layouts/Layout.astro";
 import ShippingForm from "@/sections/QuoteForm";
 ---
 
-<Layout title="Quote" description="Quote Page">
+<Layout
+  seo={{
+    title: "Get a Quote | Royal Fast Safe Transportation Services",
+    description:
+      "Request a personalized quote for your transportation needs. Royal Fast Safe provides competitive pricing for fast, reliable, and secure shipping services",
+    ogTitle: "Get a Free Transportation Quote | Royal Fast Safe",
+    ogDescription:
+      "Request your personalized shipping quote in minutes. Competitive rates for premium transportation services",
+    ogType: "website",
+    ogUrl: "https://royalfastandsafe.com/quote",
+    ogImage: "/og.jpg",
+    twitterTitle: "Get a Free Transportation Quote | Royal Fast Safe",
+    twitterDescription:
+      "Request your personalized shipping quote in minutes. Competitive rates for premium transportation services",
+    twitterImage: "/og.jpg",
+  }}
+>
   <main class="bg-background">
     <ShippingForm client:visible />
   </main>

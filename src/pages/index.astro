@@ -12,7 +12,22 @@ import Services from "@/sections/Services.astro";
 import Timeline from "@/sections/Timeline.astro";
 ---
 
-<Layout title="Royal Fast & Safe" description="Royal Fast & Safe Home Page">
+<Layout
+  seo={{
+    title: "Royal Fast Safe | Fast & Reliable Transportation Services",
+    description:
+      "Royal Fast Safe offers premium transportation and logistics services with speed, safety, and reliability. Get a quote today for your shipping and transportation needs",
+    ogDescription:
+      "Fast, reliable and secure transportation solutions for all your shipping needs",
+    ogType: "website",
+    ogUrl: "https://royalfastandsafe.com",
+    ogImage: "/og.jpg",
+    twitterTitle: "Royal Fast Safe | Premium Transportation Services",
+    twitterDescription:
+      "Fast, reliable and secure transportation solutions for all your shipping needs",
+    twitterImage: "/og.jpg",
+  }}
+>
   <Hero />
   <Partners />
   <Services />
