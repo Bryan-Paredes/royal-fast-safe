@@ -3,6 +3,7 @@ import "@/styles/global.css";
 import Footer from "@/sections/Footer.astro";
 import Nav from "@/sections/Nav.astro";
 import SEO from "@/components/SEO.astro";
+import Analytics from "@vercel/analytics/astro";
 interface Props {
   seo: {
     title: string;
@@ -56,6 +57,7 @@ const { seo } = Astro.props;
     <SEO {...seo} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <Analytics />
   </head>
   <body class="flex flex-col min-h-screen">
     <Nav />
