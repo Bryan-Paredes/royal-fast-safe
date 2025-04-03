@@ -4,6 +4,9 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast, Toaster } from "sonner";
 import confetti from "canvas-confetti";
 import { usePhoneFormatter } from "@/hooks/usePhoneFormatter";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export interface FormData {
   firstName: string;
@@ -50,13 +53,13 @@ export default function ContactForm() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label
+            <Label
               htmlFor="firstName"
               className="block text-sm font-medium text-foreground mb-2"
             >
               First Name
-            </label>
-            <input
+            </Label>
+            <Input
               {...register("firstName", {
                 required: "First name is required",
                 minLength: {
@@ -72,8 +75,9 @@ export default function ContactForm() {
                   message: "Only letters are allowed",
                 },
               })}
+              placeholder="John"
               aria-invalid={errors.firstName ? "true" : "false"}
-              className="w-full px-4 py-3 bg-dark-deeper border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-foreground"
+              className="w-full px-4 py-3"
             />
             {errors.firstName && (
               <p role="alert" className="text-red-500">
@@ -83,13 +87,13 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label
+            <Label
               htmlFor="last_name"
               className="block text-sm font-medium text-foreground mb-2"
             >
               Last name
-            </label>
-            <input
+            </Label>
+            <Input
               {...register("lastName", {
                 required: "Last name is required",
                 minLength: {
@@ -105,8 +109,9 @@ export default function ContactForm() {
                   message: "Only letters are allowed",
                 },
               })}
+              placeholder="Doe"
               aria-invalid={errors.lastName ? "true" : "false"}
-              className="w-full px-4 py-3 bg-dark-deeper border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-foreground"
+              className="w-full px-4 py-3"
             />
             {errors.lastName && (
               <p role="alert" className="text-red-500">
@@ -117,13 +122,13 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label
+          <Label
             htmlFor="email"
             className="block text-sm font-medium text-foreground mb-2"
           >
             Email
-          </label>
-          <input
+          </Label>
+          <Input
             {...register("email", {
               required: {
                 value: true,
@@ -134,8 +139,9 @@ export default function ContactForm() {
                 message: "Invalid email address",
               },
             })}
+            placeholder="john.doe@example.com"
             aria-invalid={errors.email ? "true" : "false"}
-            className="w-full px-4 py-3 bg-dark-deeper border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-foreground"
+            className="w-full px-4 py-3"
           />
           {errors.email && (
             <p role="alert" className="text-red-500">
@@ -145,13 +151,13 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label
+          <Label
             htmlFor="phone"
             className="block text-sm font-medium text-foreground mb-2"
           >
             Phone number
-          </label>
-          <input
+          </Label>
+          <Input
             {...register("phone", {
               required: {
                 value: true,
@@ -161,8 +167,9 @@ export default function ContactForm() {
             onChange={(e) =>
               setValue("phone", handlePhoneChange(e.target.value))
             }
+            placeholder="555-555-5555"
             aria-invalid={errors.phone ? "true" : "false"}
-            className="w-full px-4 py-3 bg-dark-deeper border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-foreground"
+            className="w-full px-4 py-3"
           />
           {errors.phone && (
             <p role="alert" className="text-red-500">
@@ -172,19 +179,20 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label
+          <Label
             htmlFor="message"
             className="block text-sm font-medium text-foreground mb-2"
           >
             Message
-          </label>
-          <textarea
+          </Label>
+          <Textarea
             {...register("message", {
               required: "Message is required",
             })}
+            placeholder="Enter your message"
             aria-invalid={errors.message ? "true" : "false"}
             rows={4}
-            className="w-full px-4 py-3 bg-dark-deeper border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-50  text-foreground resize-none"
+            className="w-full px-4 py-3"
           />
           {errors.message && (
             <p role="alert" className="text-red-500 mt-5">

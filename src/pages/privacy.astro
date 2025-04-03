@@ -1,15 +1,38 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { ArrowLeft } from "lucide-react";
 ---
 
-<Layout title="Privacy Policy" description="Privacy Policy">
-  <article>
-    <div class="container-privacy">
+<Layout
+  seo={{
+    title: "Privacy, Terms & Conditions | Royal Fast Safe Transportation",
+    description:
+      "Read the terms and conditions for Royal Fast Safe's transportation and logistics services. Understand our policies, legal agreements, and service terms",
+    ogDescription:
+      "Important legal information regarding the use of Royal Fast Safe's transportation services, delivery policies, and customer agreements",
+    ogType: "website",
+    ogUrl: "https://royalfastandsafe.com/privacy",
+    ogImage: "https://royal-fast-safe.vercel.app/og.jpg",
+    twitterTitle:
+      "Privacy, Terms & Conditions | Royal Fast Safe Transportation",
+    twitterDescription:
+      "Important legal information regarding the use of Royal Fast Safe's transportation services, delivery policies, and customer agreements",
+    twitterImage: "https://royal-fast-safe.vercel.app/og.jpg",
+  }}
+>
+  <article class="min-h-screen max-w-4xl w-full mx-auto p-3">
+    <div class="container-privacy my-40 border rounded-lg p-10 mx-auto">
       <div class="go-home">
         <i class="fa-solid fa-arrow-left" style="color: #80742a;"></i>
-        <a href="/">Go Home</a>
+        <a
+          href="/"
+          class="flex items-center gap-2 hover:-tranlsate-x-1 hover:text-primary-600 w-fit transition-transform duration-200 cursor-pointer"
+        >
+          <ArrowLeft className="h-5 w-5" />
+          Go Home
+        </a>
       </div>
-      <h1 class="title-privacy">Privacy Policy</h1>
+      <h1 class="title-privacy mt-5 text-center">Privacy Policy</h1>
       <h3>Updated at November 30th, 2019</h3>
 
       <p>
@@ -870,3 +893,52 @@ import Layout from "@/layouts/Layout.astro";
     </div>
   </article>
 </Layout>
+
+<style>
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0;
+  }
+  .title-privacy {
+    font-size: 40px;
+    border-bottom: 1px solid #997f35;
+    margin-top: 5px;
+    border-style: dashed;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  li {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  li::before {
+    content: "●";
+    font-size: 16px;
+    color: #997f35;
+  }
+</style>
