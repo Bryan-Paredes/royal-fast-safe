@@ -11,6 +11,7 @@ export interface Props {
   twitterDescription?: string;
   twitterImage?: string;
   canonicalURL?: string;
+  royalKeywords?: string;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   twitterDescription = ogDescription,
   twitterImage = ogImage,
   canonicalURL = Astro.url,
+  royalKeywords = Astro.props.royalKeywords,
 } = Astro.props;
 ---
 
@@ -43,3 +45,5 @@ const {
 <meta name="twitter:title" content={twitterTitle} />
 <meta name="twitter:description" content={twitterDescription} />
 <meta name="twitter:image" content={twitterImage} />
+
+<meta name="keywords" content={royalKeywords} />
