@@ -101,8 +101,7 @@ export const TimelineData = [
     ),
   },
   {
-    title:
-      "FULL TRUCKLOAD TRANSPORT, LESS THAN TRUCKOAD (LTL), FREIGHT SHIPPING",
+    title: "FULL TRUCKLOAD, LESS THAN TRUCKLOAD (LTL), FREIGHT SHIPPING",
     content: (
       <div>
         <p className="flex items-center gap-3 text-neutral-800 dark:text-neutral-200 text-xs md:text-base font-normal mb-8 text-balance">
