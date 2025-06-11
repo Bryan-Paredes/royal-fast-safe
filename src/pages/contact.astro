@@ -4,6 +4,30 @@ import { Building, Headset, Mail } from "lucide-react";
 import ContactForm from "@/sections/ContactForm";
 ---
 
+<!-- Schema.org ContactPage + Organization -->
+<script type="application/ld+json">
+  {`
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Royal Fast and Safe",
+      "url": "https://royalfastandsafe.com",
+      "logo": "https://royalfastandsafe.com/og.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-(888)-428-6329",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": ["English", "Spanish"]
+      }
+    },
+    "description": "Contact page for Royal Fast and Safe, a company specializing in heavy and oversized load transportation in the USA."
+  }
+  `}
+  </script>
+
 <Layout
   seo={{
     title: "Contact Us | Royal Fast & Safe Transport",

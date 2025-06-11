@@ -3,6 +3,50 @@ import Layout from "@/layouts/Layout.astro";
 import ShippingForm from "@/sections/QuoteForm";
 ---
 
+<script type="application/ld+json">
+  {`
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Heavy Hauling Quote Request",
+    "provider": {
+      "@type": "Organization",
+      "name": "Royal Fast and Safe",
+      "url": "https://royalfastandsafe.com"
+    },
+    "areaServed": "US",
+    "description": "Request a free, fast quote for transporting machinery, heavy loads, and oversized loads in the USA. Royal Fast and Safe is your expert heavy hauling company.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Transportation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Heavy Hauling"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Oversize Load Transport"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Machinery Transport"
+          }
+        }
+      ]
+    }
+  }
+  `}
+  </script>
+
 <Layout
   seo={{
     title: "Heavy Haul Online Quote | Royal Fast & Safe Transport Services",
