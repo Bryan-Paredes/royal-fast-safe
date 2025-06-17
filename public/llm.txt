@@ -1,0 +1,57 @@
+# LLMs Crawler Permissions for royalfastandsafe.com
+# Más información: https://llm.dev/llm-robots
+
+User-Agent: *
+Allow: /
+
+Sitemap: http://royalfastandsafe.com/sitemap.xml
+
+# Permitir acceso a los principales bots de IA
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Anthropic-Claudes
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: MetaAI
+Allow: /
+
+User-Agent: GeminiBot
+Allow: /
+
+User-Agent: OpenAI
+Allow: /
+
+User-Agent: CCBot
+Allow: /
+
+User-Agent: YouBot
+Allow: /
+
+User-Agent: DuckDuckGo-AI
+Allow: /
+
+User-Agent: Applebot
+Allow: /
+
+User-Agent: Amazonbot
+Allow: /
+
+# Si tienes alguna sección privada, puedes bloquearla así:
+# Disallow: /admin/
+# Disallow: /test/
+
+# Contacto del responsable del dominio:
+Contact: info@royalfastandsafe.com
+
+# Copyright
+Copyright: Royal Fast and Safe Transport LLC
