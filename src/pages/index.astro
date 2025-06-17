@@ -31,33 +31,31 @@ import Timeline from "@/sections/Timeline.astro";
     twitterImage: "https://royalfastandsafe.com/og.jpg",
   }}
 >
-<!-- Datos estructurados Schema.org para Organization y FAQ -->
-<script type="application/ld+json">
-  {`
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Royal Fast and Safe",
-    "url": "https://royalfastandsafe.com",
-    "logo": "https://royalfastandsafe.com/og.jpg",
-    "description": "Leading company in heavy hauling, oversized loads, machinery, and industrial equipment in the USA.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "US"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-(888)-428-6329",
-      "contactType": "Customer Service",
-      "areaServed": "US"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/royal-fast-safe/",
-      "https://www.facebook.com/royalfastandsafetransportation/"
-    ]
-  }
-  `}
-</script>
+  <!-- Datos estructurados Schema.org para Organization y FAQ -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Royal Fast and Safe",
+      "url": "https://royalfastandsafe.com",
+      "logo": "https://royalfastandsafe.com/og.jpg",
+      "description": "Leading company in heavy hauling, oversized loads, machinery, and industrial equipment in the USA.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-(888)-428-6329",
+        "contactType": "Customer Service",
+        "areaServed": "US"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/royal-fast-safe/",
+        "https://www.facebook.com/royalfastandsafetransportation/"
+      ]
+    }
+  </script>
 
   <Hero />
   <Partners />
