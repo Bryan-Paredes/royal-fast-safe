@@ -21,6 +21,39 @@ import { useEffect } from "react";
 import { usePhoneFormatter } from "@/hooks/usePhoneFormatter";
 import confetti from "canvas-confetti";
 
+declare global {
+  interface Window {
+    gtag: (
+      command: "event",
+      action: string,
+      params: {
+        send_to: string;
+        value?: number;
+        currency?: string;
+        event_callback?: () => void;
+      }
+    ) => void;
+  }
+}
+
+// Puedes declarar la función aquí, fuera del componente:
+function gtag_report_conversion(url?: string) {
+  var callback = function () {
+    if (typeof url !== "undefined") {
+      window.location.href = url;
+    }
+  };
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: "AW-17259959199/A6h-COayoeEaEJ-nmKZA",
+      value: 1.0,
+      currency: "USD",
+      event_callback: callback,
+    });
+  }
+  return false;
+}
+
 export default function ShippingForm() {
   const {
     handleSubmit,
@@ -89,6 +122,7 @@ export default function ShippingForm() {
       if (response.ok) {
         toast.success("Quote submitted successfully");
         confetti();
+        gtag_report_conversion();
         reset();
       } else {
         toast.error("Error submitting quote");
