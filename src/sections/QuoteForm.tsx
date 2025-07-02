@@ -119,7 +119,7 @@ export default function ShippingForm() {
         body: JSON.stringify(data),
       });
 
-      await fetch("/api/meta-capi", {
+      await fetch("/api/send-meta-event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,14 +1,17 @@
 // src/pages/api/send-meta-event.ts
 import type { APIRoute } from 'astro';
-import { SHA256, enc } from 'crypto-js';
+import { createHash } from 'crypto';
+
+export const prerender = false;
 
 const PIXEL_ID = import.meta.env.META_PIXEL_ID;
 const ACCESS_TOKEN = import.meta.env.META_ACCESS_TOKEN;
-const TEST_EVENT_CODE = 'TEST73250';
 
+//Entorno de pruebas el codigo debe de ir a nivel de data
+// const TEST_EVENT_CODE = 'TEST73250';
 
 function hashSHA256(value: string) {
-    return SHA256(value.trim().toLowerCase()).toString(enc.Hex);
+    return createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -20,9 +23,8 @@ export const POST: APIRoute = async ({ request }) => {
         data: [
             {
                 event_name: 'Lead',
-                event_time: 1751424316,
+                event_time: Math.floor(Date.now() / 1000),
                 action_source: 'website',
-                test_event_code: TEST_EVENT_CODE,
                 user_data: {
                     em: [hashSHA256(email)],
                     ph: [hashSHA256(phone)],
@@ -36,13 +38,18 @@ export const POST: APIRoute = async ({ request }) => {
                 },
                 original_event_data: {
                     event_name: 'Lead',
-                    event_time: 1751424316,
+                    event_time: Math.floor(Date.now() / 1000),
                 }
             },
         ],
     };
 
-    const url = `https://graph.facebook.com/v19.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
+    const url = `https://graph.facebook.com/v23.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
+
+    console.log('Payload:', JSON.stringify(payload, null, 2));
+    console.log('URL:', url);
+    console.log('Pixel ID:', PIXEL_ID);
+    console.log('Access Token exists:', !!ACCESS_TOKEN);
 
     try {
         const response = await fetch(url, {
@@ -54,6 +61,9 @@ export const POST: APIRoute = async ({ request }) => {
         });
 
         const data = await response.json();
+        console.log('Meta API Response:', JSON.stringify(data, null, 2));
+        console.log('Response Status:', response.status);
+
         return new Response(JSON.stringify({ success: true, data }), { status: 200 });
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
