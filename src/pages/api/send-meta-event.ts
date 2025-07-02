@@ -46,11 +46,6 @@ export const POST: APIRoute = async ({ request }) => {
 
     const url = `https://graph.facebook.com/v23.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
 
-    console.log('Payload:', JSON.stringify(payload, null, 2));
-    console.log('URL:', url);
-    console.log('Pixel ID:', PIXEL_ID);
-    console.log('Access Token exists:', !!ACCESS_TOKEN);
-
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -61,8 +56,6 @@ export const POST: APIRoute = async ({ request }) => {
         });
 
         const data = await response.json();
-        console.log('Meta API Response:', JSON.stringify(data, null, 2));
-        console.log('Response Status:', response.status);
 
         return new Response(JSON.stringify({ success: true, data }), { status: 200 });
     } catch (error) {
