@@ -38,7 +38,7 @@ declare global {
 
 // Puedes declarar la función aquí, fuera del componente:
 function gtag_report_conversion(url?: string) {
-  var callback = function () {
+  let callback = function () {
     if (typeof url !== "undefined") {
       window.location.href = url;
     }
@@ -119,15 +119,26 @@ export default function ShippingForm() {
         body: JSON.stringify(data),
       });
 
+      await fetch("/api/meta-capi", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: data.email,
+          phone: data.phone,
+        }),
+      });
+
       if (response.ok) {
         toast.success("Quote submitted successfully");
         confetti();
+        // Disparo de conversión Google y Meta CAPI
         gtag_report_conversion();
         reset();
       } else {
         toast.error("Error submitting quote");
       }
     } catch (error) {
+      console.error(error);
       toast.error("Error submitting quote");
     }
   };
@@ -452,6 +463,7 @@ export default function ShippingForm() {
             }
             id="agreeToSMS"
             aria-label="I agree to the terms and conditions"
+            className="border-primary-600"
           />
           <Label htmlFor="agreeToSMS" className="text-sm">
             Accept the terms and conditions and allow myself to be contacted by
