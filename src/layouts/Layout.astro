@@ -77,6 +77,8 @@ const { seo } = Astro.props;
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XTKRSGENW"
     ></script>
     <script is:inline>
+      // Asegurar que dataLayer esté inicializado
+      window.dataLayer = window.dataLayer || [];
       gtag("config", "G-6XTKRSGENW");
     </script>
 
