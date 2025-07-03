@@ -59,7 +59,7 @@ const { seo } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <Analytics />
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - Google Ads -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17259959199"></script>
@@ -71,6 +71,13 @@ const { seo } = Astro.props;
       gtag("js", new Date());
 
       gtag("config", "AW-17259959199");
+    </script>
+
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XTKRSGENW"
+    ></script>
+    <script is:inline>
+      gtag("config", "G-6XTKRSGENW");
     </script>
 
     <!-- Meta Pixel Code -->
