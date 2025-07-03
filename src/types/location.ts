@@ -16,6 +16,11 @@ export interface QuoteData {
     shipFrom: LocationInfo
     shipTo: LocationInfo
     weight: string
+    year: string
+    make: string
+    model: string
+    isOperable: boolean
+    preferredShippingDate: string
     agreeToSMS: boolean
 }
 

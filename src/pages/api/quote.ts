@@ -2,6 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
+import { generateQuoteEmailTemplate } from "@/templates/quoteEmailTemplate";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -21,38 +22,36 @@ export const POST: APIRoute = async ({ request }) => {
             shipFrom = {},
             shipTo = {},
             weight,
+            year,
+            make,
+            model,
+            isOperable,
+            preferredShippingDate,
             agreeToSMS,
         } = body
 
 
-        if (!name || !email || !message) {
+        if (!name || !email || !message || !year || !make || !model) {
             return new Response(JSON.stringify({
-                message: 'Missing required fields',
+                message: 'Missing required fields: name, email, message, year, make, and model are required',
             }), { status: 400, headers: { "Content-Type": "application/json" } });
         }
 
-        const emailContent = `
-            <h1>🙎🏻‍♂️ ${name} ${email}</h1>
-            <h3>🔤 Ship From:</h3>
-            <p>Postal Code: ${shipFrom?.postalCode ? shipFrom.postalCode : "No postal code provided"}</p>
-            <p>City: ${shipFrom.city}</p>
-            <p>State: ${shipFrom.state}</p>
-            <h3>🔤 Ship To:</h3>
-            <p>Postal Code: ${shipTo?.postalCode ? shipTo.postalCode : "No postal code provided"}</p>
-            <p>City: ${shipTo.city}</p>
-            <p>State: ${shipTo.state}</p>
-            <h3>💎 Weight:</h3>
-            <p>${weight ? weight : "No weight provided"}</p>
-            <h3>📝 Message:</h3>
-            <p>${message}</p>
-            <h3>📞 Phone Number:</h3>
-            ${phone ? `<p>${phone}</p>` : `<p>No phone number provided</p>`
-            }
-            <h3>📧 Email:</h3>
-            <p>${email}</p>
-            <h3>📞 Agree to SMS:</h3>
-            <p>${agreeToSMS ? "Yes" : "No"}</p>
-            `;
+        const emailContent = generateQuoteEmailTemplate({
+            name,
+            email,
+            phone,
+            message,
+            shipFrom,
+            shipTo,
+            weight,
+            year,
+            make,
+            model,
+            isOperable,
+            preferredShippingDate,
+            agreeToSMS,
+        });
 
 
         const { data, error } = await resend.emails.send({

@@ -42,6 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
                 }
             },
         ],
+        // test_event_code: TEST_EVENT_CODE,
     };
 
     const url = `https://graph.facebook.com/v23.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
