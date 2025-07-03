@@ -136,8 +136,6 @@ export default function ShippingForm() {
         }),
       });
 
-      console.log(data);
-
       await fetch("/api/send-meta-event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -201,7 +199,7 @@ export default function ShippingForm() {
                   },
                 })}
                 placeholder="John Doe"
-                className="mt-2 w-full"
+                className="mt-2 w-full border-gray-300 dark:border-gray-100"
               />
               {errors.name && (
                 <p role="alert" className="my-1 text-red-500">
@@ -220,6 +218,7 @@ export default function ShippingForm() {
                   setValue("phone", handlePhoneChange(e.target.value))
                 }
                 placeholder="555-555-5555"
+                className="mt-0.5 w-full border-gray-300 dark:border-gray-100"
               />
             </div>
             <div>
@@ -239,7 +238,7 @@ export default function ShippingForm() {
                 })}
                 type="email"
                 placeholder="john.doe@example.com"
-                className="mt-2 w-full"
+                className="mt-2 w-full border-gray-300 dark:border-gray-100"
               />
               {errors.email && (
                 <p role="alert" className="my-1 text-red-500">
@@ -262,7 +261,7 @@ export default function ShippingForm() {
                 onValueChange={(value) => setValue("shipFrom.country", value)}
                 value={watch("shipFrom.country")}
               >
-                <SelectTrigger className="w-full mt-2">
+                <SelectTrigger className="w-full mt-2 border-gray-300 dark:border-gray-100">
                   <SelectValue placeholder="Select a Country" />
                 </SelectTrigger>
                 <SelectContent>
@@ -287,7 +286,7 @@ export default function ShippingForm() {
                 })}
                 id="shipFromPostalCode"
                 placeholder="Enter Postal Code"
-                className="mt-2"
+                className="mt-2 border-gray-300 dark:border-gray-100"
               />
               {errors.shipFrom?.postalCode && (
                 <p role="alert" className="my-1 text-red-500">
@@ -309,7 +308,7 @@ export default function ShippingForm() {
                 id="shipFromCity"
                 onChange={() => setValue("shipFrom.manualEdit", true)}
                 placeholder="Enter City"
-                className="mt-2"
+                className="mt-2 border-gray-300 dark:border-gray-100"
               />
               {errors.shipFrom?.city && (
                 <p role="alert" className="my-1 text-red-500">
@@ -331,7 +330,7 @@ export default function ShippingForm() {
                 id="shipFromState"
                 onChange={() => setValue("shipFrom.manualEdit", true)}
                 placeholder="Enter State"
-                className="mt-2"
+                className="mt-2 border-gray-300 dark:border-gray-100"
               />
               {errors.shipFrom?.state && (
                 <p role="alert" className="my-1 text-red-500">
@@ -351,7 +350,7 @@ export default function ShippingForm() {
               <Select
                 onValueChange={(value) => setValue("shipTo.country", value)}
               >
-                <SelectTrigger className="w-full mt-2">
+                <SelectTrigger className="w-full mt-2 border-gray-300 dark:border-gray-100">
                   <SelectValue placeholder="Select a Country" />
                 </SelectTrigger>
                 <SelectContent>
@@ -376,7 +375,7 @@ export default function ShippingForm() {
                 })}
                 id="shipFromPostalCode"
                 placeholder="Enter Postal Code"
-                className="mt-2"
+                className="mt-2 border-gray-300 dark:border-gray-100"
               />
               {errors.shipTo?.postalCode && (
                 <p role="alert" className="my-1 text-red-500">
@@ -398,7 +397,7 @@ export default function ShippingForm() {
                 id="shipFromCity"
                 placeholder="Enter City"
                 onChange={() => setValue("shipTo.manualEdit", true)}
-                className="mt-2"
+                className="mt-2 border-gray-300 dark:border-gray-100"
               />
               {errors.shipTo?.city && (
                 <p role="alert" className="my-1 text-red-500">
@@ -420,7 +419,7 @@ export default function ShippingForm() {
                 id="shipFromState"
                 placeholder="Enter State"
                 onChange={() => setValue("shipTo.manualEdit", true)}
-                className="mt-2"
+                className="mt-2 border-gray-300 dark:border-gray-100"
               />
               {errors.shipTo?.state && (
                 <p role="alert" className="my-1 text-red-500">
@@ -460,7 +459,7 @@ export default function ShippingForm() {
                   },
                 })}
                 placeholder="2020"
-                className="mt-2 w-full"
+                className="mt-2 w-full border-gray-300 dark:border-gray-100"
               />
               {errors.year && (
                 <p role="alert" className="my-1 text-red-500">
@@ -488,7 +487,7 @@ export default function ShippingForm() {
                   },
                 })}
                 placeholder="Caterpillar"
-                className="mt-2 w-full"
+                className="mt-2 w-full border-gray-300 dark:border-gray-100"
               />
               {errors.make && (
                 <p role="alert" className="my-1 text-red-500">
@@ -516,7 +515,7 @@ export default function ShippingForm() {
                   },
                 })}
                 placeholder="CAT 320"
-                className="mt-2 w-full"
+                className="mt-2 w-full border-gray-300 dark:border-gray-100"
               />
               {errors.model && (
                 <p role="alert" className="my-1 text-red-500">
@@ -538,7 +537,7 @@ export default function ShippingForm() {
                 }
                 value={watch("isOperable") ? "true" : "false"}
               >
-                <SelectTrigger className="w-full mt-2">
+                <SelectTrigger className="w-full mt-2 border-gray-300 dark:border-gray-100">
                   <SelectValue placeholder="Select an option" />
                 </SelectTrigger>
                 <SelectContent>
@@ -558,7 +557,7 @@ export default function ShippingForm() {
               <Input
                 {...register("weight")}
                 placeholder="172 lbs"
-                className="mt-2 w-full"
+                className="mt-2 w-full border-gray-300 dark:border-gray-100"
               />
             </div>
           </div>
@@ -574,7 +573,7 @@ export default function ShippingForm() {
                 <Button
                   variant="outline"
                   data-empty={!date}
-                  className="data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal"
+                  className="data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal cursor-pointer border-gray-300 dark:border-gray-100"
                 >
                   <CalendarIcon />
                   {date ? format(date, "PPP") : <span>Pick a date</span>}
@@ -604,7 +603,7 @@ export default function ShippingForm() {
               },
             })}
             placeholder="Enter your Message"
-            className="mt-2 h-30 w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
+            className="mt-2 h-30 w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none border-gray-300 dark:border-gray-100"
           />
           {errors.message && (
             <p role="alert" className="my-1 text-red-500">
