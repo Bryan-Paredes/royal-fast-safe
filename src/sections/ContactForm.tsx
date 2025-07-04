@@ -40,6 +40,7 @@ export default function ContactForm() {
         reset();
       }
     } catch (error) {
+      console.error(error);
       toast.error("Error submitting form please try again!");
     }
   };

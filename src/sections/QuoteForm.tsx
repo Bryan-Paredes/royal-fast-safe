@@ -127,6 +127,18 @@ export default function ShippingForm() {
   }, [watchAll.shipTo.postalCode]);
 
   const onSubmit: SubmitHandler<QuoteData> = async (data) => {
+    // Función para obtener cookies
+    function getCookie(name: string): string | undefined {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop()?.split(";").shift();
+      return undefined;
+    }
+
+    // Obtener cookies fbp y fbc
+    const fbp = getCookie("_fbp");
+    const fbc = getCookie("_fbc");
+
     try {
       const response = await fetch("/api/quote", {
         method: "POST",
@@ -142,6 +154,8 @@ export default function ShippingForm() {
         body: JSON.stringify({
           email: data.email,
           phone: data.phone,
+          fbp,
+          fbc,
         }),
       });
 

@@ -17,7 +17,11 @@ function hashSHA256(value: string) {
 export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
 
-    const { email, phone } = body;
+    const { email, phone, fbp, fbc } = body;
+
+    // Obtener IP y user agent
+    const client_ip_address = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? '';
+    const client_user_agent = request.headers.get('user-agent') ?? '';
 
     const payload = {
         data: [
@@ -28,6 +32,11 @@ export const POST: APIRoute = async ({ request }) => {
                 user_data: {
                     em: [hashSHA256(email)],
                     ph: [hashSHA256(phone)],
+                    client_ip_address,
+                    client_user_agent,
+                    fbp: fbp ? [fbp] : undefined,
+                    fbc: fbc ? [fbc] : undefined,
+                    external_id: [hashSHA256(email)],
                 },
                 custom_data: {
                     currency: 'USD',
