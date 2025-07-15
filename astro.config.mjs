@@ -18,4 +18,13 @@ export default defineConfig({
 
   integrations: [react()],
   adapter: vercel(),
+
+  // Configuración de i18n
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "es"],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
 });
