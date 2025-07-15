@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500">
+  <rect width="750" height="500" fill="#c60b1e"/>
+  <rect width="750" height="250" y="125" fill="#ffc400"/>
+  <g transform="translate(375,250)">
+    <g fill="#aa151b">
+      <g id="c">
+        <g id="l">
+          <g id="k">
+            <g id="j">
+              <g id="h"/>
+              <g id="g">
+                <g id="e"/>
+                <g id="d"/>
+                <g id="c"/>
+                <g id="b"/>
+                <g id="a"/>
+                <use href="#b"/>
+                <use href="#c"/>
+                <use href="#d"/>
+                <use href="#e"/>
+              </g>
+              <use href="#g"/>
+              <use href="#g" transform="rotate(72)"/>
+              <use href="#g" transform="rotate(-72)"/>
+              <use href="#g" transform="rotate(144)"/>
+              <use href="#g" transform="rotate(-144)"/>
+            </g>
+            <use href="#j"/>
+            <use href="#j" transform="rotate(72)"/>
+            <use href="#j" transform="rotate(-72)"/>
+            <use href="#j" transform="rotate(144)"/>
+            <use href="#j" transform="rotate(-144)"/>
+          </g>
+          <use href="#k"/>
+          <use href="#k" transform="rotate(72)"/>
+          <use href="#k" transform="rotate(-72)"/>
+          <use href="#k" transform="rotate(144)"/>
+          <use href="#k" transform="rotate(-144)"/>
+        </g>
+        <use href="#l"/>
+        <use href="#l" transform="rotate(72)"/>
+        <use href="#l" transform="rotate(-72)"/>
+        <use href="#l" transform="rotate(144)"/>
+        <use href="#l" transform="rotate(-144)"/>
+      </g>
+    </g>
+  </g>
+</svg> 
