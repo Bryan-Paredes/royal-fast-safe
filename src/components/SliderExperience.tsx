@@ -15,7 +15,11 @@ import { Button } from "./ui/button";
 import { Maximize2 } from "lucide-react";
 import { InteractiveButton } from "./ui/interactive-button";
 
-export default function SliderExperience() {
+interface SliderExperienceProps {
+  t: any;
+}
+
+export default function SliderExperience({ t }: SliderExperienceProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -37,7 +41,9 @@ export default function SliderExperience() {
   return (
     <div>
       <div className="py-2 text-center text-lg text-muted-foreground">
-        Slide {current} of {count}
+        {t.sliderExperience.slideOf
+          .replace("{current}", current.toString())
+          .replace("{count}", count.toString())}
       </div>
       <Carousel setApi={setApi} className="w-full max-w-4xl max-h-1/2 mx-auto">
         <CarouselContent>
@@ -56,7 +62,7 @@ export default function SliderExperience() {
                     <div className="flex text-center justify-evenly w-full md:w-2/3 p-4 sm:p-6 bg-background">
                       <div className="text-center flex-1">
                         <h3 className="text-primary-500 font-bold text-lg sm:text-xl mb-1 sm:mb-2">
-                          From
+                          {t.sliderExperience.from}
                         </h3>
                         <p className="text-foreground font-medium text-sm sm:text-base">
                           {image.from.city}, {image.from.state}
@@ -69,7 +75,7 @@ export default function SliderExperience() {
                       />
                       <div className="text-center flex-1">
                         <h3 className="text-primary-500 font-bold text-lg sm:text-xl mb-1 sm:mb-2">
-                          To
+                          {t.sliderExperience.to}
                         </h3>
                         <p className="text-foreground font-medium text-sm sm:text-base">
                           {image.to.city}, {image.to.state}
@@ -78,21 +84,13 @@ export default function SliderExperience() {
                     </div>
                     <Dialog modal={true}>
                       <DialogTrigger asChild>
-                        {/* <Button
-                          variant="ghost"
-                          size="lg"
-                          className="top-2 right-2 bg-background/50 hover:bg-primary-500 hover:text-white text-foreground rounded-full p-2 cursor-pointer"
-                          onClick={() => setSelectedImage(image.imageUrl)}
-                        > */}
                         <InteractiveButton
                           className="text-foreground hover:text-white"
                           aria-label={`View Equipment Details of ${image.equipment.name}`}
                           onClick={() => setSelectedImage(image.imageUrl)}
                         >
-                          View Equipment Details
-                          {/* <Maximize2 size={20} /> */}
+                          {t.sliderExperience.equipmentDetails}
                         </InteractiveButton>
-                        {/* </Button> */}
                       </DialogTrigger>
                       <DialogContent className="w-full p-4 bg-background border-none">
                         <DialogTitle className="sr-only">
@@ -100,24 +98,19 @@ export default function SliderExperience() {
                         </DialogTitle>
                         {selectedImage && (
                           <>
-                            {/* <img
-                              src={selectedImage}
-                              alt="Imagen ampliada"
-                              className="w-full h-auto rounded-lg"
-                            /> */}
                             <h3 className="text-primary-500 font-bold text-lg sm:text-xl mt-2">
-                              Equipment Details
+                              {t.sliderExperience.equipmentDetails}
                             </h3>
                             <div className="grid items-center justify-start  gap-3 sm:gap-4 my-5">
                               <div>
                                 <p className="flex gap-2 font-semibold text-foreground text-sm sm:text-base">
-                                  Name:{" "}
+                                  {t.sliderExperience.name}:{" "}
                                   <span className="font-normal">
                                     {image.equipment.name}
                                   </span>
                                 </p>
                                 <p className="flex gap-2 font-semibold text-foreground text-sm sm:text-base">
-                                  Model:{" "}
+                                  {t.sliderExperience.model}:{" "}
                                   <span className="font-normal">
                                     {image.equipment.model}
                                   </span>
@@ -146,49 +139,6 @@ export default function SliderExperience() {
                         )}
                       </DialogContent>
                     </Dialog>
-                    {/* <div className="bg-background flex flex-col gap-2 items-start md:items-center my-5">
-                      <h3 className="text-primary-500 font-bold text-lg sm:text-xl my-2">
-                        Equipment Details
-                      </h3>
-                      <div className="">
-                        <div className="p-4 sm:p-6 pt-0 sm:pt-0">
-                          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
-                            <div>
-                              <p className="flex gap-2 font-semibold text-gray-700 text-sm sm:text-base">
-                                Name:{" "}
-                                <span className="font-normal">
-                                  {image.equipment.name}
-                                </span>
-                              </p>
-                              <p className="flex gap-2 font-semibold text-gray-700 text-sm sm:text-base">
-                                Model:{" "}
-                                <span className="font-normal">
-                                  {image.equipment.model}
-                                </span>
-                              </p>
-                            </div>
-                            <div>
-                              {image.equipment.weight && (
-                                <p className="flex gap-2 font-semibold text-gray-700 text-sm sm:text-base">
-                                  Weight:{" "}
-                                  <span className="font-normal">
-                                    {image.equipment.weight}
-                                  </span>
-                                </p>
-                              )}
-                              {image.equipment.dimensions && (
-                                <p className="flex gap-2 font-semibold text-gray-700 text-sm sm:text-base">
-                                  Dimensions:{" "}
-                                  <span className="font-normal">
-                                    {image.equipment.dimensions}
-                                  </span>
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> */}
                   </CardContent>
                 </Card>
               </div>

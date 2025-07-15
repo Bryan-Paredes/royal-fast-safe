@@ -21,3 +21,16 @@ export const flags: FlagImage[] = [
         alt: "Mexico",
     }
 ]
+
+export const languageFlags = {
+    en: {
+        src: "/flags/usa.svg",
+        alt: "English",
+        label: "EN"
+    },
+    es: {
+        src: "/flags/spain.svg",
+        alt: "Español",
+        label: "ES"
+    }
+}

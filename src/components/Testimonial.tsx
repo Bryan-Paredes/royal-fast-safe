@@ -26,7 +26,7 @@ export default function TestimonialSlide() {
                 decoding="async"
                 width="40"
                 height="40"
-                alt=""
+                alt={`${name} customer review`}
                 src={img}
               />
               <div className="flex flex-col">
