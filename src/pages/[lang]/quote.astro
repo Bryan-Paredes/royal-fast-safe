@@ -1,0 +1,140 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ShippingForm from "@/sections/QuoteForm";
+import { getTranslationFromURL } from "@/i18n/utils";
+import { locales } from "@/i18n/config";
+
+export async function getStaticPaths() {
+  return locales.map((locale) => ({ params: { lang: locale } }));
+}
+
+const t = getTranslationFromURL(Astro.url.pathname);
+const lang = Astro.params.lang;
+---
+
+<!-- SEO FIX: Enhanced Schema.org Service for quote page -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Heavy Haul Quote Request",
+    "serviceType": "Heavy Hauling Quote Request",
+    "provider": {
+      "@type": "Organization",
+      "name": "Royal Fast & Safe",
+      "url": "https://royalfastandsafe.com",
+      "logo": "https://royalfastandsafe.com/logoRoyal.webp"
+    },
+    "areaServed": "US",
+    "description": "Request a free, fast quote for transporting machinery, heavy loads, and oversized loads in the USA. Royal Fast & Safe is your expert heavy hauling company.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free quote for heavy haul and oversized load transportation"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Transportation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Heavy Equipment Transport"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Oversized Load Transport"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Machinery Transport"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Container Shipping"
+          }
+        }
+      ]
+    }
+  }
+</script>
+
+<Layout
+  lang={lang}
+  t={t}
+  seo={{
+    // SEO FIX: Enhanced SEO for quote page
+    title:
+      lang === "es"
+        ? "Cotización Gratuita | Royal Fast & Safe - Transporte Pesado USA"
+        : "Free Quote | Royal Fast & Safe - Heavy Haul Transportation USA",
+    description:
+      lang === "es"
+        ? "Solicita tu cotización gratuita para transporte de maquinaria pesada y carga sobredimensionada en Estados Unidos. Respuesta rápida y precios competitivos."
+        : "Request your free quote for heavy machinery and oversized load transportation in the United States. Fast response and competitive rates.",
+    ogTitle:
+      lang === "es"
+        ? "Cotización Gratuita | Royal Fast & Safe - Transporte Pesado"
+        : "Free Quote | Royal Fast & Safe - Heavy Haul Transportation",
+    ogDescription:
+      lang === "es"
+        ? "Solicita tu cotización gratuita para transporte de maquinaria pesada y carga sobredimensionada en Estados Unidos."
+        : "Request your free quote for heavy machinery and oversized load transportation in the United States.",
+    ogType: "website",
+    ogUrl: `https://royalfastandsafe.com/${lang}/quote`,
+    ogImage: "https://royalfastandsafe.com/og.jpg",
+    twitterTitle:
+      lang === "es"
+        ? "Cotización Gratuita | Royal Fast & Safe - Transporte Pesado"
+        : "Free Quote | Royal Fast & Safe - Heavy Haul Transportation",
+    twitterDescription:
+      lang === "es"
+        ? "Solicita tu cotización gratuita para transporte de maquinaria pesada y carga sobredimensionada en Estados Unidos."
+        : "Request your free quote for heavy machinery and oversized load transportation in the United States.",
+    twitterImage: "https://royalfastandsafe.com/og.jpg",
+    royalKeywords:
+      lang === "es"
+        ? "cotización gratuita, transporte pesado, maquinaria, carga sobredimensionada, USA, presupuesto"
+        : "free quote, heavy haul, machinery, oversize load, USA, estimate",
+  }}
+>
+  {
+    /* SEO ORIGINAL (comentado para comparación):
+  seo={{
+    title:
+      t.contact?.title || "Get a Quote | Royal Fast & Safe Transport Services",
+    description:
+      t.contact?.description ||
+      "Request your personalized shipping quote in minutes. Competitive rates and cost efficient for transport services",
+    ogTitle:
+      t.contact?.title || "Get a Quote | Royal Fast & Safe Transport Services",
+    ogDescription:
+      t.contact?.description ||
+      "Request your personalized shipping quote in minutes. Competitive rates and cost efficient for transport services",
+    ogType: "website",
+    ogUrl: `https://royalfastandsafe.com/${lang}/quote`,
+    ogImage: "https://royalfastandsafe.com/og.jpg",
+    twitterTitle:
+      t.contact?.title || "Get a Quote | Royal Fast & Safe Transport Services",
+    twitterDescription:
+      t.contact?.description ||
+      "Request your personalized shipping quote in minutes. Competitive rates and cost efficient for transport services",
+    twitterImage: "https://royalfastandsafe.com/og.jpg",
+  }}
+  */
+  }
+  <main class="bg-background">
+    <ShippingForm t={t} lang={lang} client:visible />
+  </main>
+</Layout>

@@ -1,0 +1,556 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { ArrowLeft } from "lucide-react";
+import { getTranslationFromURL } from "@/i18n/utils";
+import { locales } from "@/i18n/config";
+
+export async function getStaticPaths() {
+  return locales.map((locale) => ({ params: { lang: locale } }));
+}
+
+const t = getTranslationFromURL(Astro.url.pathname);
+const lang = Astro.params.lang;
+---
+
+<!-- SEO FIX: Enhanced Schema.org LegalDocument for privacy page -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalDocument",
+    "name": "Privacy Policy",
+    "description": "Privacy Policy and Terms & Conditions for Royal Fast & Safe transportation services",
+    "url": "https://royalfastandsafe.com/privacy",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Royal Fast & Safe",
+      "url": "https://royalfastandsafe.com"
+    },
+    "dateModified": "2019-11-30",
+    "inLanguage": ["en", "es"]
+  }
+</script>
+
+<Layout
+  lang={lang}
+  t={t}
+  seo={{
+    // SEO FIX: Enhanced SEO for privacy page
+    title:
+      lang === "es"
+        ? "Política de Privacidad | Royal Fast & Safe - Transporte Pesado USA"
+        : "Privacy Policy | Royal Fast & Safe - Heavy Haul Transportation USA",
+    description:
+      lang === "es"
+        ? "Lee los términos y condiciones de los servicios de transporte y logística de Royal Fast & Safe. Entiende nuestras políticas, acuerdos legales y términos de servicio."
+        : "Read the terms and conditions for Royal Fast & Safe's transportation and logistics services. Understand our policies, legal agreements, and service terms.",
+    ogTitle:
+      lang === "es"
+        ? "Política de Privacidad | Royal Fast & Safe - Transporte Pesado"
+        : "Privacy Policy | Royal Fast & Safe - Heavy Haul Transportation",
+    ogDescription:
+      lang === "es"
+        ? "Información legal importante sobre el uso de los servicios de transporte de Royal Fast & Safe, políticas de entrega y acuerdos con clientes."
+        : "Important legal information regarding the use of Royal Fast & Safe's transportation services, delivery policies, and customer agreements.",
+    ogType: "website",
+    ogUrl: `https://royalfastandsafe.com/${lang}/privacy`,
+    ogImage: "https://royalfastandsafe.com/og.jpg",
+    twitterTitle:
+      lang === "es"
+        ? "Política de Privacidad | Royal Fast & Safe - Transporte Pesado"
+        : "Privacy Policy | Royal Fast & Safe - Heavy Haul Transportation",
+    twitterDescription:
+      lang === "es"
+        ? "Información legal importante sobre el uso de los servicios de transporte de Royal Fast & Safe, políticas de entrega y acuerdos con clientes."
+        : "Important legal information regarding the use of Royal Fast & Safe's transportation services, delivery policies, and customer agreements.",
+    twitterImage: "https://royalfastandsafe.com/og.jpg",
+    royalKeywords:
+      lang === "es"
+        ? "política de privacidad, términos y condiciones, transporte pesado, Royal Fast & Safe, legal, USA"
+        : "privacy policy, terms and conditions, heavy haul transportation, Royal Fast & Safe, legal, USA",
+  }}
+>
+  {
+    /* SEO ORIGINAL (comentado para comparación):
+  seo={{
+    title: "Privacy, Terms & Conditions | Royal Fast Safe Transportation",
+    description:
+      "Read the terms and conditions for Royal Fast Safe's transportation and logistics services. Understand our policies, legal agreements, and service terms",
+    ogDescription:
+      "Important legal information regarding the use of Royal Fast Safe's transportation services, delivery policies, and customer agreements",
+    ogType: "website",
+    ogUrl: `https://royalfastandsafe.com/${lang}/privacy`,
+    ogImage: "https://royalfastandsafe.com/og.jpg",
+    twitterTitle:
+      "Privacy, Terms & Conditions | Royal Fast Safe Transportation",
+    twitterDescription:
+      "Important legal information regarding the use of Royal Fast Safe's transportation services, delivery policies, and customer agreements",
+    twitterImage: "https://royalfastandsafe.com/og.jpg",
+  }}
+  */
+  }
+  <main class="min-h-screen bg-background mt-36">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <!-- Header Section -->
+      <div class="bg-card rounded-xl shadow-lg p-8 mb-8 border border-border">
+        <div class="flex items-center justify-between mb-6">
+          <a
+            href={`/${lang}`}
+            class="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-200 font-medium"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            {lang === "en" ? "Back to Home" : "Volver al Inicio"}
+          </a>
+          <div class="text-sm text-muted-foreground">
+            {
+              lang === "en"
+                ? "Last updated: November 30, 2019"
+                : "Última actualización: 30 de noviembre de 2019"
+            }
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            {lang === "en" ? "Privacy Policy" : "Política de Privacidad"}
+          </h1>
+          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {
+              lang === "en"
+                ? "Your privacy is important to us. This policy explains how we collect, use, and protect your information."
+                : "Tu privacidad es importante para nosotros. Esta política explica cómo recopilamos, usamos y protegemos tu información."
+            }
+          </p>
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="bg-card rounded-xl shadow-lg p-8 border border-border">
+        <!-- Introduction -->
+        <section class="mb-12">
+          <div class="prose prose-lg max-w-none">
+            <p class="text-foreground leading-relaxed mb-6">
+              {
+                lang === "en"
+                  ? 'Royal Fast & Safe ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Royal Fast & Safe.'
+                  : 'Royal Fast & Safe ("nosotros," "nuestro," o "nos") se compromete a proteger su privacidad. Esta Política de Privacidad explica cómo se recopila, utiliza y divulga su información personal por parte de Royal Fast & Safe.'
+              }
+            </p>
+            <p class="text-foreground leading-relaxed">
+              {
+                lang === "en"
+                  ? 'This Privacy Policy applies to our website and its associated subdomains (collectively, our "Service"). By accessing or using our Service, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy.'
+                  : 'Esta Política de Privacidad se aplica a nuestro sitio web y sus subdominios asociados (colectivamente, nuestro "Servicio"). Al acceder o usar nuestro Servicio, usted indica que ha leído, entendido y está de acuerdo con nuestra recopilación, almacenamiento, uso y divulgación de su información personal como se describe en esta Política de Privacidad.'
+              }
+            </p>
+          </div>
+        </section>
+
+        <!-- Definitions Section -->
+        <section class="mb-12">
+          <h2
+            class="text-3xl font-bold text-foreground mb-6 border-b border-border pb-4"
+          >
+            {
+              lang === "en"
+                ? "Definitions and Key Terms"
+                : "Definiciones y Términos Clave"
+            }
+          </h2>
+          <p class="text-foreground mb-6">
+            {
+              lang === "en"
+                ? "To help explain things as clearly as possible in this Privacy Policy, every time any of these terms are referenced, they are strictly defined as:"
+                : "Para ayudar a explicar las cosas de la manera más clara posible en esta Política de Privacidad, cada vez que se hace referencia a cualquiera de estos términos, se definen estrictamente como:"
+            }
+          </p>
+
+          <div class="grid gap-6">
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">Cookie</h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information."
+                    : "Pequeña cantidad de datos generados por un sitio web y guardados por su navegador web. Se utiliza para identificar su navegador, proporcionar análisis, recordar información sobre usted como su preferencia de idioma o información de inicio de sesión."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Company" : "Compañía"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? 'When this policy mentions "Company," "we," "us," or "our," it refers to Royal Fast & Safe Transport LLC, (4044 Foothill Dr, Provo, UT 84604), that is responsible for your information under this Privacy Policy.'
+                    : 'Cuando esta política menciona "Compañía," "nosotros," "nos," o "nuestro," se refiere a Royal Fast & Safe Transport LLC, (4044 Foothill Dr, Provo, UT 84604), que es responsable de su información bajo esta Política de Privacidad.'
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Country" : "País"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Where Royal Fast & Safe or the owners/founders of Royal Fast & Safe are based, in this case is United States."
+                    : "Donde se encuentra Royal Fast & Safe o los propietarios/fundadores de Royal Fast & Safe, en este caso es Estados Unidos."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Customer" : "Cliente"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Refers to the company, organization or person that signs up to use the Royal Fast & Safe Service to manage the relationships with your consumers or service users."
+                    : "Se refiere a la empresa, organización o persona que se registra para usar el Servicio de Royal Fast & Safe para gestionar las relaciones con sus consumidores o usuarios del servicio."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Device" : "Dispositivo"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Any internet connected device such as a phone, tablet, computer or any other device that can be used to visit Royal Fast & Safe and use the services."
+                    : "Cualquier dispositivo conectado a internet como un teléfono, tableta, computadora o cualquier otro dispositivo que se pueda usar para visitar Royal Fast & Safe y usar los servicios."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "IP Address" : "Dirección IP"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet."
+                    : "A cada dispositivo conectado a Internet se le asigna un número conocido como dirección de protocolo de Internet (IP). Estos números generalmente se asignan en bloques geográficos. Una dirección IP a menudo se puede usar para identificar la ubicación desde la cual un dispositivo se conecta a Internet."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Personal Data" : "Datos Personales"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person."
+                    : "Cualquier información que directa, indirectamente, o en conexión con otra información — incluyendo un número de identificación personal — permita la identificación o identificación de una persona natural."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Service" : "Servicio"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Refers to the service provided by Royal Fast & Safe as described in the relative terms and on this platform."
+                    : "Se refiere al servicio proporcionado por Royal Fast & Safe como se describe en los términos relativos y en esta plataforma."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Third-party Service" : "Servicio de Terceros"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you."
+                    : "Se refiere a anunciantes, patrocinadores de concursos, socios promocionales y de marketing, y otros que proporcionan nuestro contenido o cuyos productos o servicios creemos que pueden interesarle."
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "Website" : "Sitio Web"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "Royal Fast & Safe's site, which can be accessed via this URL: https://royalfastandsafe.com/"
+                    : "El sitio de Royal Fast & Safe, al que se puede acceder a través de esta URL: https://royalfastandsafe.com/"
+                }
+              </p>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6 border border-border">
+              <h3 class="font-semibold text-foreground mb-2">
+                {lang === "en" ? "You" : "Usted"}
+              </h3>
+              <p class="text-foreground">
+                {
+                  lang === "en"
+                    ? "A person or entity that is registered with Royal Fast & Safe to use the Services."
+                    : "Una persona o entidad que está registrada con Royal Fast & Safe para usar los Servicios."
+                }
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Information Collection Section -->
+        <section class="mb-12">
+          <h2
+            class="text-3xl font-bold text-foreground mb-6 border-b border-border pb-4"
+          >
+            {
+              lang === "en"
+                ? "What Information Do We Collect?"
+                : "¿Qué Información Recopilamos?"
+            }
+          </h2>
+
+          <div class="prose prose-lg max-w-none">
+            <p class="text-foreground leading-relaxed mb-6">
+              {
+                lang === "en"
+                  ? "We collect information from you when you visit our website, register on our site, place an order, subscribe to our newsletter, respond to a survey or fill out a form."
+                  : "Recopilamos información de usted cuando visita nuestro sitio web, se registra en nuestro sitio, realiza un pedido, se suscribe a nuestro boletín, responde a una encuesta o completa un formulario."
+              }
+            </p>
+
+            <div
+              class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg mb-6"
+            >
+              <h3 class="font-semibold text-foreground mb-3">
+                {
+                  lang === "en"
+                    ? "Information we collect includes:"
+                    : "La información que recopilamos incluye:"
+                }
+              </h3>
+              <ul class="space-y-2 text-foreground">
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span
+                    >{
+                      lang === "en"
+                        ? "Name and contact information"
+                        : "Nombre e información de contacto"
+                    }</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span
+                    >{
+                      lang === "en"
+                        ? "Email address and phone number"
+                        : "Dirección de correo electrónico y número de teléfono"
+                    }</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span
+                    >{
+                      lang === "en"
+                        ? "Company information and address"
+                        : "Información de la empresa y dirección"
+                    }</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span
+                    >{
+                      lang === "en"
+                        ? "Transportation requirements and preferences"
+                        : "Requerimientos y preferencias de transporte"
+                    }</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span
+                    >{
+                      lang === "en"
+                        ? "Device and browser information"
+                        : "Información del dispositivo y navegador"
+                    }</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- How We Use Information Section -->
+        <section class="mb-12">
+          <h2
+            class="text-3xl font-bold text-foreground mb-6 border-b border-border pb-4"
+          >
+            {
+              lang === "en"
+                ? "How Do We Use Your Information?"
+                : "¿Cómo Usamos Su Información?"
+            }
+          </h2>
+
+          <div class="prose prose-lg max-w-none">
+            <p class="text-foreground leading-relaxed mb-6">
+              {
+                lang === "en"
+                  ? "We use the information we collect to provide, maintain, and improve our services, communicate with you, and ensure the security of our platform."
+                  : "Usamos la información que recopilamos para proporcionar, mantener y mejorar nuestros servicios, comunicarnos con usted y asegurar la seguridad de nuestra plataforma."
+              }
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-muted border border-border rounded-lg p-6">
+                <h3 class="font-semibold text-foreground mb-3">
+                  {
+                    lang === "en"
+                      ? "Service Provision"
+                      : "Provisión de Servicios"
+                  }
+                </h3>
+                <p class="text-foreground text-sm">
+                  {
+                    lang === "en"
+                      ? "To provide transportation quotes, process orders, and deliver our services efficiently."
+                      : "Para proporcionar cotizaciones de transporte, procesar pedidos y entregar nuestros servicios de manera eficiente."
+                  }
+                </p>
+              </div>
+
+              <div class="bg-muted border border-border rounded-lg p-6">
+                <h3 class="font-semibold text-foreground mb-3">
+                  {lang === "en" ? "Communication" : "Comunicación"}
+                </h3>
+                <p class="text-foreground text-sm">
+                  {
+                    lang === "en"
+                      ? "To respond to your inquiries, send updates about your shipments, and provide customer support."
+                      : "Para responder a sus consultas, enviar actualizaciones sobre sus envíos y proporcionar soporte al cliente."
+                  }
+                </p>
+              </div>
+
+              <div class="bg-muted border border-border rounded-lg p-6">
+                <h3 class="font-semibold text-foreground mb-3">
+                  {lang === "en" ? "Security" : "Seguridad"}
+                </h3>
+                <p class="text-foreground text-sm">
+                  {
+                    lang === "en"
+                      ? "To protect against fraud, ensure platform security, and maintain the integrity of our services."
+                      : "Para proteger contra el fraude, asegurar la seguridad de la plataforma y mantener la integridad de nuestros servicios."
+                  }
+                </p>
+              </div>
+
+              <div class="bg-muted border border-border rounded-lg p-6">
+                <h3 class="font-semibold text-foreground mb-3">
+                  {lang === "en" ? "Improvement" : "Mejora"}
+                </h3>
+                <p class="text-foreground text-sm">
+                  {
+                    lang === "en"
+                      ? "To analyze usage patterns, improve our services, and develop new features."
+                      : "Para analizar patrones de uso, mejorar nuestros servicios y desarrollar nuevas funciones."
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="mb-12">
+          <h2
+            class="text-3xl font-bold text-foreground mb-6 border-b border-border pb-4"
+          >
+            {lang === "en" ? "Contact Us" : "Contáctenos"}
+          </h2>
+
+          <div class="bg-muted rounded-lg p-8 border border-border">
+            <p class="text-foreground mb-6">
+              {
+                lang === "en"
+                  ? "If you have any questions about this Privacy Policy, please contact us:"
+                  : "Si tiene alguna pregunta sobre esta Política de Privacidad, contáctenos:"
+              }
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-primary rounded-full"></div>
+                  <span class="text-foreground">
+                    <strong>{lang === "en" ? "Email:" : "Correo:"}</strong> info@royalfastandsafe.com
+                  </span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-primary rounded-full"></div>
+                  <span class="text-foreground">
+                    <strong>{lang === "en" ? "Phone:" : "Teléfono:"}</strong> (888)
+                    428-6329
+                  </span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-primary rounded-full"></div>
+                  <span class="text-foreground">
+                    <strong>{lang === "en" ? "Address:" : "Dirección:"}</strong>
+                    4044 Foothill Dr, Provo, UT 84604
+                  </span>
+                </div>
+              </div>
+
+              <div class="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                <h3 class="font-semibold text-foreground mb-2">
+                  {lang === "en" ? "Business Hours" : "Horario de Atención"}
+                </h3>
+                <p class="text-foreground text-sm">
+                  {
+                    lang === "en"
+                      ? "Monday - Friday: 8:00 AM - 6:00 PM MST"
+                      : "Lunes - Viernes: 8:00 AM - 6:00 PM MST"
+                  }
+                </p>
+                <p class="text-foreground text-sm">
+                  {
+                    lang === "en"
+                      ? "Saturday: 9:00 AM - 3:00 PM MST"
+                      : "Sábado: 9:00 AM - 3:00 PM MST"
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer Note -->
+        <div class="text-center py-8 border-t border-border">
+          <p class="text-sm text-muted-foreground">
+            {
+              lang === "en"
+                ? "This Privacy Policy was last updated on November 30, 2019. We may update this policy from time to time, so please check back periodically."
+                : "Esta Política de Privacidad fue actualizada por última vez el 30 de noviembre de 2019. Podemos actualizar esta política de vez en cuando, así que revise periódicamente."
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

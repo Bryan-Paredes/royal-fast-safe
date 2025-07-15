@@ -1,69 +1,9 @@
 ---
-import MultipleBeam from "@/components/MultipleBeam";
-import Layout from "@/layouts/Layout.astro";
-import Experience from "@/sections/Experience.astro";
-import Hero from "@/sections/Hero.astro";
-import Metrics from "@/sections/Metrics.astro";
-import OtherServices from "@/sections/OtherServices.astro";
-import Partners from "@/sections/Partners.astro";
-import Reviews from "@/sections/Reviews.astro";
-import Services from "@/sections/Services.astro";
-import Timeline from "@/sections/Timeline.astro";
+// SEO FIX: Redirect root to default language
+export async function getStaticPaths() {
+  return [];
+}
+
+// Redirect to default language
+return Astro.redirect("/en/");
 ---
-
-<Layout
-  seo={{
-    title:
-      "Heavy Haul | Oversize Load | Reliable Heavy Equipment Transport | Freight Shipping",
-    description:
-      "Looking for heavy or oversized load transport? Royal Fast and Safe is your expert in heavy hauling, oversized loads, and machinery transport in the USA. Fast, safe, and reliable solutions. Request your quote!",
-    royalKeywords:
-      "heavy hauling, heavy haul, transporte pesado, oversize load, transporte de maquinaria, freight shipping, carga sobredimensionada, transporte industrial, super load, empresa de transporte pesado, logistics, USA",
-    ogDescription:
-      "Experts in heavy hauling and oversized load transportation in the USA. Fast, safe, and customer-oriented solutions. Get a quote now!",
-    ogType: "website",
-    ogUrl: "https://royalfastandsafe.com",
-    ogImage: "https://royalfastandsafe.com/og.jpg",
-    twitterTitle:
-      "Royal Fast & Safe | Heavy Hauling and Oversized Load Transportation",
-    twitterDescription:
-      "Leading solutions for transporting machinery, heavy loads, and oversized loads in the USA. A reliable, fast, and secure company.",
-    twitterImage: "https://royalfastandsafe.com/og.jpg",
-  }}
->
-  <!-- Datos estructurados Schema.org para Organization y FAQ -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Royal Fast and Safe",
-      "url": "https://royalfastandsafe.com",
-      "logo": "https://royalfastandsafe.com/og.jpg",
-      "description": "Leading company in heavy hauling, oversized loads, machinery, and industrial equipment in the USA.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-(888)-428-6329",
-        "contactType": "Customer Service",
-        "areaServed": "US"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/royal-fast-safe/",
-        "https://www.facebook.com/royalfastandsafetransportation/"
-      ]
-    }
-  </script>
-
-  <Hero />
-  <Partners />
-  <Services />
-  <Metrics />
-  <Timeline />
-  <Experience />
-  <OtherServices />
-  <Reviews />
-  <MultipleBeam client:visible />
-</Layout>

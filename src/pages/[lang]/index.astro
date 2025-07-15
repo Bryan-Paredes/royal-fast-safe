@@ -1,0 +1,164 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getTranslationFromURL, getRoutes } from "@/i18n/utils";
+import { getLocaleFromURL, getLocaleURL, locales } from "@/i18n/config";
+import Hero from "@/sections/Hero.astro";
+import Services from "@/sections/Services.astro";
+import Experience from "@/sections/Experience.astro";
+import Reviews from "@/sections/Reviews.astro";
+import OtherServices from "@/sections/OtherServices.astro";
+import Partners from "@/sections/Partners.astro";
+import Timeline from "@/sections/Timeline.astro";
+import Metrics from "@/sections/Metrics.astro";
+import Footer from "@/sections/Footer.astro";
+import MultipleBeam from "@/components/MultipleBeam";
+
+export async function getStaticPaths() {
+  return locales.map((locale) => ({ params: { lang: locale } }));
+}
+
+const { lang } = Astro.params;
+const pathname = Astro.url.pathname;
+const t = getTranslationFromURL(pathname);
+const routes = getRoutes(lang);
+
+// SEO FIX: Enhanced SEO data with better keywords and descriptions
+// SEO FIX: Add structured data for better search engine understanding
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Royal Fast & Safe",
+  url: "https://royalfastandsafe.com",
+  logo: "https://royalfastandsafe.com/logoRoyal.webp",
+  description:
+    lang === "es"
+      ? "Servicios profesionales de transporte pesado y carga sobredimensionada en Estados Unidos"
+      : "Professional heavy haul and oversized load transportation services in the United States",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "4044 Foothill Drive",
+    addressLocality: "Provo",
+    addressRegion: "UT",
+    postalCode: "84604",
+    addressCountry: "US",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-888-428-6329",
+    contactType: "Customer Service",
+    areaServed: "US",
+    availableLanguage: ["English", "Spanish"],
+  },
+  sameAs: ["https://www.instagram.com/royal.fast_safe"],
+  serviceArea: {
+    "@type": "Country",
+    name: "United States",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Transportation Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name:
+            lang === "es"
+              ? "Transporte de Equipo Pesado"
+              : "Heavy Equipment Transport",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name:
+            lang === "es"
+              ? "Carga Sobredimensionada"
+              : "Oversized Load Transport",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: lang === "es" ? "Envío de Contenedores" : "Container Shipping",
+        },
+      },
+    ],
+  },
+};
+
+const seo = {
+  title:
+    lang === "es"
+      ? "Royal Fast & Safe - Transporte Pesado y Carga Sobredimensionada | USA"
+      : "Royal Fast & Safe - Heavy Haul & Oversize Load Transportation | USA",
+  description:
+    lang === "es"
+      ? "Servicios profesionales de transporte pesado, carga sobredimensionada y logística en Estados Unidos. Cotización gratuita para maquinaria, equipos pesados y carga especializada."
+      : "Professional heavy haul, oversized load transportation and logistics services across the United States. Free quote for machinery, heavy equipment and specialized cargo.",
+  ogTitle:
+    lang === "es"
+      ? "Royal Fast & Safe - Transporte Pesado y Carga Sobredimensionada"
+      : "Royal Fast & Safe - Heavy Haul & Oversize Load Transportation",
+  ogDescription:
+    lang === "es"
+      ? "Transporte profesional de maquinaria pesada, carga sobredimensionada y logística en Estados Unidos. Cotización gratuita disponible."
+      : "Professional machinery transport, oversized loads and logistics across the United States. Free quote available.",
+  ogType: "website",
+  ogUrl: Astro.url.href,
+  ogImage: "https://royalfastandsafe.com/og.jpg",
+  twitterTitle:
+    lang === "es"
+      ? "Royal Fast & Safe - Transporte Pesado y Carga Sobredimensionada"
+      : "Royal Fast & Safe - Heavy Haul & Oversize Load Transportation",
+  twitterDescription:
+    lang === "es"
+      ? "Transporte profesional de maquinaria pesada, carga sobredimensionada y logística en Estados Unidos."
+      : "Professional machinery transport, oversized loads and logistics across the United States.",
+  twitterImage: "https://royalfastandsafe.com/og.jpg",
+  canonicalURL: Astro.url.href,
+  royalKeywords:
+    lang === "es"
+      ? "transporte pesado, carga sobredimensionada, maquinaria, USA, cotización, logística, equipos pesados, bulldozers, grúas, contenedores, envío marítimo"
+      : "heavy haul, oversize load, machinery transport, USA, quote, logistics, heavy equipment, bulldozers, cranes, containers, maritime shipping, freight",
+};
+
+// SEO ORIGINAL (comentado para comparación):
+/*
+const seo = {
+  title: t.hero.title,
+  description:
+    "Royal Fast & Safe Transportation provides professional transportation and logistics solutions across the United States, Canada, and Mexico.",
+  ogTitle: t.hero.title,
+  ogDescription:
+    "Professional transportation solutions for heavy hauling, oversized loads, and freight shipping.",
+  ogType: "website",
+  ogUrl: Astro.url.href,
+  ogImage: "/og.jpg",
+  twitterTitle: t.hero.title,
+  twitterDescription:
+    "Professional transportation solutions for heavy hauling, oversized loads, and freight shipping.",
+  twitterImage: "/og.jpg",
+  canonicalURL: Astro.url.href,
+  royalKeywords:
+    "transportation, heavy hauling, oversized loads, freight shipping, logistics",
+};
+*/
+---
+
+<!-- SEO FIX: Add structured data script -->
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<Layout lang={lang} t={t} seo={seo}>
+  <Hero t={t} />
+  <Partners t={t} />
+  <Services t={t} />
+  <Experience t={t} />
+  <Metrics t={t} />
+  <Timeline t={t} />
+  <OtherServices t={t} />
+  <Reviews t={t} />
+  <MultipleBeam />
+</Layout>

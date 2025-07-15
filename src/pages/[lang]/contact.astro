@@ -1,0 +1,149 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Building, Headset, Mail } from "lucide-react";
+import ContactForm from "@/sections/ContactForm";
+import { getTranslationFromURL } from "@/i18n/utils";
+import { locales } from "@/i18n/config";
+
+export async function getStaticPaths() {
+  return locales.map((locale) => ({ params: { lang: locale } }));
+}
+
+const t = getTranslationFromURL(Astro.url.pathname);
+const lang = Astro.params.lang;
+---
+
+<!-- SEO FIX: Enhanced Schema.org ContactPage + Organization -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Royal Fast & Safe",
+    "description": "Contact Royal Fast & Safe for professional heavy haul and oversized load transportation services in the USA.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Royal Fast & Safe",
+      "url": "https://royalfastandsafe.com",
+      "logo": "https://royalfastandsafe.com/logoRoyal.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4044 Foothill Drive",
+        "addressLocality": "Provo",
+        "addressRegion": "UT",
+        "postalCode": "84604",
+        "addressCountry": "US"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-888-428-6329",
+          "contactType": "Customer Service",
+          "areaServed": "US",
+          "availableLanguage": ["English", "Spanish"]
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "info@royalfastandsafe.com",
+          "contactType": "Customer Service",
+          "areaServed": "US"
+        }
+      ]
+    }
+  }
+</script>
+
+<Layout
+  lang={lang}
+  t={t}
+  seo={{
+    // SEO FIX: Enhanced SEO for contact page
+    title:
+      lang === "es"
+        ? "Contacto | Royal Fast & Safe - Transporte Pesado USA"
+        : "Contact | Royal Fast & Safe - Heavy Haul Transportation USA",
+    description:
+      lang === "es"
+        ? "Contáctanos para servicios de transporte pesado y carga sobredimensionada en Estados Unidos. Cotización gratuita disponible."
+        : "Contact us for heavy haul and oversized load transportation services in the United States. Free quote available.",
+    ogTitle:
+      lang === "es"
+        ? "Contacto | Royal Fast & Safe - Transporte Pesado"
+        : "Contact | Royal Fast & Safe - Heavy Haul Transportation",
+    ogDescription:
+      lang === "es"
+        ? "Contáctanos para servicios de transporte pesado y carga sobredimensionada en Estados Unidos."
+        : "Contact us for heavy haul and oversized load transportation services in the United States.",
+    ogType: "website",
+    ogUrl: `https://royalfastandsafe.com/${lang}/contact`,
+    ogImage: "https://royalfastandsafe.com/og.jpg",
+    twitterTitle:
+      lang === "es"
+        ? "Contacto | Royal Fast & Safe - Transporte Pesado"
+        : "Contact | Royal Fast & Safe - Heavy Haul Transportation",
+    twitterDescription:
+      lang === "es"
+        ? "Contáctanos para servicios de transporte pesado y carga sobredimensionada en Estados Unidos."
+        : "Contact us for heavy haul and oversized load transportation services in the United States.",
+    twitterImage: "https://royalfastandsafe.com/og.jpg",
+    royalKeywords:
+      lang === "es"
+        ? "contacto, transporte pesado, carga sobredimensionada, cotización, USA, maquinaria"
+        : "contact, heavy haul, oversize load, quote, USA, machinery transport",
+  }}
+>
+  {
+    /* SEO ORIGINAL (comentado para comparación):
+  seo={{
+    title: `${t.contact.title} | Royal Fast & Safe Transport`,
+    description: t.contact.description,
+    ogTitle: `${t.contact.title} | Royal Fast & Safe Transport`,
+    ogDescription: t.contact.description,
+    ogType: "website",
+    ogUrl: `https://royalfastandsafe.com/${lang}/contact`,
+    ogImage: "https://royalfastandsafe.com/og.jpg",
+    twitterTitle: `${t.contact.title} | Royal Fast & Safe Transport`,
+    twitterDescription: t.contact.description,
+    twitterImage: "https://royalfastandsafe.com/og.jpg",
+  }}
+  */
+  }
+  <main
+    class="bg-background flex flex-col p-4 mt-36 md:mt-60 max-w-6xl mx-auto w-full border rounded-xl"
+  >
+    <section class="flex items-center justify-center">
+      <div class="w-full max-w-6xl mx-auto rounded-lg overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-8 p-8">
+          <!-- Columna izquierda - Información de contacto -->
+          <div class="space-y-8">
+            <div>
+              <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                {t.contact.title}
+              </h2>
+              <p class="text-foreground mb-8 text-balance">
+                {t.contact.description}
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-start space-x-4">
+                <Building className="h-8 w-8 text-primary-600" />
+                <span class="text-foreground">{t.contact.address}</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <Headset className="h-8 w-8 text-primary-600" />
+                <span class="text-foreground">{t.contact.phone}</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <Mail className="h-8 w-8 text-primary-600" />
+                <span class="text-foreground">{t.contact.email}</span>
+              </div>
+            </div>
+          </div>
+          <!-- Columna derecha - Formulario de contacto -->
+          <div>
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
