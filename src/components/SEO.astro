@@ -12,8 +12,37 @@ export interface Props {
   twitterImage?: string;
   canonicalURL?: string;
   royalKeywords?: string;
+  // SEO FIX: Added new SEO properties
+  author?: string;
+  robots?: string;
+  viewport?: string;
+  themeColor?: string;
+  msapplicationTileColor?: string;
 }
 
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogType = "website",
+  ogUrl = Astro.url,
+  ogImage = "/og.jpg",
+  twitterTitle = ogTitle,
+  twitterDescription = ogDescription,
+  twitterImage = ogImage,
+  canonicalURL = Astro.url,
+  royalKeywords = Astro.props.royalKeywords,
+  // SEO FIX: Default values for new SEO properties
+  author = "Royal Fast & Safe",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  viewport = "width=device-width, initial-scale=1",
+  themeColor = "#0f172a",
+  msapplicationTileColor = "#0f172a",
+} = Astro.props;
+
+// SEO ORIGINAL (comentado para comparación):
+/*
 const {
   title,
   description,
@@ -28,8 +57,48 @@ const {
   canonicalURL = Astro.url,
   royalKeywords = Astro.props.royalKeywords,
 } = Astro.props;
+*/
 ---
 
+<!-- SEO FIX: Enhanced meta tags for better SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Basic SEO -->
+<meta name="author" content={author} />
+<meta name="robots" content={robots} />
+<meta name="keywords" content={royalKeywords} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={ogUrl} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="Royal Fast & Safe" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={twitterTitle} />
+<meta name="twitter:description" content={twitterDescription} />
+<meta name="twitter:image" content={twitterImage} />
+<meta name="twitter:site" content="@royalfastsafe" />
+
+<!-- Mobile and Theme -->
+<meta name="viewport" content={viewport} />
+<meta name="theme-color" content={themeColor} />
+<meta name="msapplication-TileColor" content={msapplicationTileColor} />
+
+<!-- Additional SEO -->
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+<!-- SEO ORIGINAL (comentado para comparación):
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
@@ -47,3 +116,4 @@ const {
 <meta name="twitter:image" content={twitterImage} />
 
 <meta name="keywords" content={royalKeywords} />
+-->
