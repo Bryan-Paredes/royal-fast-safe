@@ -4,7 +4,10 @@ import Footer from "@/sections/Footer.astro";
 import Nav from "@/sections/Nav.astro";
 import SEO from "@/components/SEO.astro";
 import Analytics from "@vercel/analytics/astro";
+
 interface Props {
+  lang: string;
+  t: any;
   seo: {
     title: string;
     description: string;
@@ -21,7 +24,7 @@ interface Props {
   };
 }
 
-const { seo } = Astro.props;
+const { lang, t, seo } = Astro.props;
 ---
 
 <script is:inline>
@@ -48,16 +51,34 @@ const { seo } = Astro.props;
   }
 </script>
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/logoRoyal.ico" sizes="any" />
     <link rel="icon" href="/logoRoyal.ico" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="apple-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
     <SEO {...seo} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO FIX: Add hreflang tags for international SEO -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={`https://royalfastandsafe.com/en${Astro.url.pathname.replace(/^\/[a-z]{2}/, "")}`}
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href={`https://royalfastandsafe.com/es${Astro.url.pathname.replace(/^\/[a-z]{2}/, "")}`}
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={`https://royalfastandsafe.com/en${Astro.url.pathname.replace(/^\/[a-z]{2}/, "")}`}
+    />
     <Analytics />
     <!-- Google tag (gtag.js) - Google Ads -->
     <script
@@ -121,9 +142,9 @@ const { seo } = Astro.props;
     <!-- End Meta Pixel Code -->
   </head>
   <body class="flex flex-col min-h-screen">
-    <Nav />
+    <Nav lang={lang} t={t} />
     <slot />
-    <Footer />
+    <Footer lang={lang} t={t} />
   </body>
 </html>
 
