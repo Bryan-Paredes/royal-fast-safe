@@ -4,7 +4,7 @@ import { getTranslationFromURL } from "@/i18n/utils";
 const t = getTranslationFromURL(Astro.url.pathname);
 ---
 
-<nav class="hidden lg:flex gap-8 text-sm">
+<nav class="hidden lg:flex gap-8 text-sm nav-text">
   {
     Object.values(t.routes).map((route: any, key) => (
       <a
