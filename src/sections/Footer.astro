@@ -1,5 +1,12 @@
 ---
 import { Building, Headset, Mail } from "lucide-react";
+import { getLocaleFromURL } from "@/i18n/config";
+import { en } from "@/i18n/en";
+import { es } from "@/i18n/es";
+
+const currentLang = getLocaleFromURL(Astro.url.pathname);
+const t = currentLang === "es" ? es : en;
+const privacyUrl = `/${currentLang}/privacy`;
 ---
 
 <footer
@@ -9,8 +16,8 @@ import { Building, Headset, Mail } from "lucide-react";
     <h2 class="text-2xl font-bold text-primary-500 mb-4">Royal Fast & Safe</h2>
     <div class="flex items-center justify-center gap-5">
       <p class="text-lg text-foreground">info@royalfastandsafe.com</p>
-      <a href="/privacy" class="text-foreground hover:text-primary-500">
-        Privacy Policy
+      <a href={privacyUrl} class="text-foreground hover:text-primary-500">
+        {t.footer.privacyPolicy}
       </a>
     </div>
     <div
@@ -36,6 +43,6 @@ import { Building, Headset, Mail } from "lucide-react";
   </div>
   <hr class="border-t border-primary-500 my-10" />
   <div class="text-base text-center my-10 text-foreground">
-    &copy; {new Date().getFullYear()} - All rights reserved.
+    &copy; {new Date().getFullYear()} - {t.footer.allRightsReserved}
   </div>
 </footer>
