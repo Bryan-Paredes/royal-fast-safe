@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getTranslationFromURL, getRoutes } from "@/i18n/utils";
-import { getLocaleFromURL, getLocaleURL, locales } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import Hero from "@/sections/Hero.astro";
 import Services from "@/sections/Services.astro";
 import Experience from "@/sections/Experience.astro";
@@ -10,7 +10,6 @@ import OtherServices from "@/sections/OtherServices.astro";
 import Partners from "@/sections/Partners.astro";
 import Timeline from "@/sections/Timeline.astro";
 import Metrics from "@/sections/Metrics.astro";
-import Footer from "@/sections/Footer.astro";
 import MultipleBeam from "@/components/MultipleBeam";
 
 export async function getStaticPaths() {
@@ -160,5 +159,5 @@ const seo = {
   <Timeline t={t} />
   <OtherServices t={t} />
   <Reviews t={t} />
-  <MultipleBeam />
+  <MultipleBeam client:visible />
 </Layout>
