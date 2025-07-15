@@ -1,7 +1,9 @@
 ---
 import { TimelineSection } from "@/components/Timeline";
+
+const { t } = Astro.props;
 ---
 
 <section class="container">
-  <TimelineSection client:visible />
+  <TimelineSection t={t} client:visible />
 </section>

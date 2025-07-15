@@ -2,15 +2,51 @@
 import SectionTitle from "@/components/SectionTitle.astro";
 import { services, type Service } from "@/data/services";
 import { Image } from "astro:assets";
+
+const { t } = Astro.props;
+
+// Mapear los servicios con las traducciones
+const translatedServices = [
+  {
+    ...services[0],
+    title: t.services.items.heavyEquipment.title,
+    description: t.services.items.heavyEquipment.description,
+  },
+  {
+    ...services[1],
+    title: t.services.items.container.title,
+    description: t.services.items.container.description,
+  },
+  {
+    ...services[2],
+    title: t.services.items.powerOnly.title,
+    description: t.services.items.powerOnly.description,
+  },
+  {
+    ...services[3],
+    title: t.services.items.boats.title,
+    description: t.services.items.boats.description,
+  },
+  {
+    ...services[4],
+    title: t.services.items.rv.title,
+    description: t.services.items.rv.description,
+  },
+  {
+    ...services[5],
+    title: t.services.items.complexLogistics.title,
+    description: t.services.items.complexLogistics.description,
+  },
+];
 ---
 
 <section class="container" id="services">
-  <SectionTitle title="Our Services" />
+  <SectionTitle title={t.services.title} />
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 py-3 items-center justify-center my-5"
   >
     {
-      services.map(({ title, description, image }: Service) => (
+      translatedServices.map(({ title, description, image }: Service) => (
         <div
           class={`bg-primary-500/35 dark:bg-zinc-800 flex flex-col items-center justify-center w-full h-full shadow-none hover:shadow-sm hover:shadow-primary-400 hover:scale-[102%] transition-all duration-200 ease-in-out gap-3 rounded-2xl px-8 py-6`}
         >

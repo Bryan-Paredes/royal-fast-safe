@@ -1,11 +1,13 @@
 ---
 import SlideOtherServices from "@/components/OtherServices";
 import SectionTitle from "@/components/SectionTitle.astro";
+
+const { t } = Astro.props;
 ---
 
 <section class="py-8">
   <div class="container px-4 md:px-8">
-    <SectionTitle title="Other Services we provide" />
+    <SectionTitle title={t.services.otherServices.title} />
   </div>
-  <SlideOtherServices client:visible />
+  <SlideOtherServices t={t} client:visible />
 </section>

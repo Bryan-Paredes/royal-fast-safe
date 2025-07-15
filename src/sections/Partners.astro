@@ -1,11 +1,13 @@
 ---
 import { SliceLogo } from "@/components/InfinityLogo";
 import SectionTitle from "@/components/SectionTitle.astro";
+
+const { t } = Astro.props;
 ---
 
 <section class="py-8">
   <div class="container px-4 md:px-8">
-    <SectionTitle title="our partners" />
+    <SectionTitle title={t.partners?.title || "Our Partners"} />
     <div class="mt-12 flex justify-center">
       <SliceLogo />
     </div>

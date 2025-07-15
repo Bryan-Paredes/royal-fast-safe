@@ -1,11 +1,13 @@
 ---
 import SectionTitle from "@/components/SectionTitle.astro";
 import SliderExperience from "@/components/SliderExperience";
+
+const { t } = Astro.props;
 ---
 
 <section class="" id="experience">
   <div class="container px-4 md:px-8">
-    <SectionTitle title="Experience and Expertise" />
+    <SectionTitle title={t.experience.title} />
   </div>
-  <SliderExperience client:visible />
+  <SliderExperience t={t} client:visible />
 </section>

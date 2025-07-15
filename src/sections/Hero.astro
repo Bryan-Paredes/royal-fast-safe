@@ -4,6 +4,11 @@ import { InteractiveButton } from "@/components/ui/interactive-button";
 import HeroSection from "@/components/Hero";
 import { flags, type FlagImage } from "@/data/flags";
 import Mouse from "@/assets/mouse.svg";
+import { getLocaleFromURL } from "@/i18n/config";
+
+const { t } = Astro.props;
+const currentLang = getLocaleFromURL(Astro.url.pathname);
+const quoteUrl = `/${currentLang}/quote`;
 ---
 
 <header
@@ -32,7 +37,7 @@ import Mouse from "@/assets/mouse.svg";
         <h1
           class="uppercase text-4xl md:text-5xl text-center md:text-[85px] font-medium max-w-[70ch] text-white text-balance mt-8"
         >
-          Reliable Freight and Heavy Haul Transport Partner
+          {t.hero.title}
           <!-- <TextGenerateEffect
             client:load
             words="Reliable Freight and Heavy Haul Transport Partner"
@@ -40,11 +45,11 @@ import Mouse from "@/assets/mouse.svg";
         </h1>
       </div>
       <div class="flex items-center justify-center gap-5">
-        <a href="/quote" class="dark:text-white cursor-pointer">
+        <a href={quoteUrl} class="dark:text-white cursor-pointer">
           <InteractiveButton
             className="text-2xl uppercase dark:text-white font-medium"
           >
-            Free Quote Now
+            {t.hero.ctaButton}
           </InteractiveButton>
         </a>
       </div>

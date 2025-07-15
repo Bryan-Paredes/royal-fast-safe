@@ -2,11 +2,13 @@
 import TestimonialSlide from "@/components/Testimonial";
 import { InteractiveButton } from "@/components/ui/interactive-button";
 import SectionTitle from "@/components/SectionTitle.astro";
+
+const { t } = Astro.props;
 ---
 
 <section class="py-8">
   <div class="container px-4 md:px-8">
-    <SectionTitle title="SUCCESS STORIES" />
+    <SectionTitle title={t.reviews.title} />
   </div>
   <div class="mt-12">
     <TestimonialSlide />
@@ -19,7 +21,7 @@ import SectionTitle from "@/components/SectionTitle.astro";
       class="dark:text-white"
     >
       <InteractiveButton className="h-14 text-base my-5">
-        View All Reviews
+        {t.reviews.viewAllReviews}
       </InteractiveButton>
     </a>
   </div>

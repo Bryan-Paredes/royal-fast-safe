@@ -28,6 +28,11 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 
+interface ShippingFormProps {
+  t: any;
+  lang: string;
+}
+
 declare global {
   interface Window {
     gtag: (
@@ -61,7 +66,7 @@ function gtag_report_conversion(url?: string) {
   return false;
 }
 
-export default function ShippingForm() {
+export default function ShippingForm({ t, lang }: ShippingFormProps) {
   const {
     handleSubmit,
     register,
@@ -160,17 +165,17 @@ export default function ShippingForm() {
       });
 
       if (response.ok) {
-        toast.success("Quote submitted successfully");
+        toast.success(t.quote.form.success);
         confetti();
         // Disparo de conversión Google y Meta CAPI
         gtag_report_conversion();
         reset();
       } else {
-        toast.error("Error submitting quote");
+        toast.error(t.quote.form.error);
       }
     } catch (error) {
       console.error(error);
-      toast.error("Error submitting quote");
+      toast.error(t.quote.form.error);
     }
   };
 
@@ -183,33 +188,33 @@ export default function ShippingForm() {
         className="max-w-4xl mx-auto mt-32 p-8 space-y-8 border rounded-xl"
       >
         <a
-          href="/"
+          href={`/${lang}`}
           className="flex items-center justify-start gap-2 hover:-translate-x-1 hover:text-primary-600 w-fit transition-transform duration-200 cursor-pointer"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span>Go Back</span>
+          <span>{t.quote.goBack}</span>
         </a>
 
         <div>
-          <h2 className="text-2xl font-bold mb-6">Details</h2>
+          <h2 className="text-2xl font-bold mb-6">{t.quote.details}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <Label htmlFor="name" className="flex items-center">
-                Your Name
+                {t.quote.form.name}
               </Label>
               <Input
                 {...register("name", {
                   required: {
                     value: true,
-                    message: "Name is required",
+                    message: t.quote.validation.nameRequired,
                   },
                   minLength: {
                     value: 3,
-                    message: "Name must be at least 3 characters",
+                    message: t.quote.validation.nameMinLength,
                   },
                   maxLength: {
                     value: 15,
-                    message: "Name must be at most 15 characters",
+                    message: t.quote.validation.nameMaxLength,
                   },
                 })}
                 placeholder="John Doe"
@@ -223,8 +228,10 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="phone" className="flex items-center">
-                Phone Number{" "}
-                <span className="text-gray-500 text-sm ml-1">(optional)</span>
+                {t.quote.form.phone}{" "}
+                <span className="text-gray-500 text-sm ml-1">
+                  {t.quote.form.optional}
+                </span>
               </Label>
               <Input
                 {...register("phone")}
@@ -237,17 +244,17 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="email" className="flex items-center">
-                Email
+                {t.quote.form.email}
               </Label>
               <Input
                 {...register("email", {
                   required: {
                     value: true,
-                    message: "Email is required",
+                    message: t.quote.validation.emailRequired,
                   },
                   pattern: {
                     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email address",
+                    message: t.quote.validation.invalidEmail,
                   },
                 })}
                 type="email"
@@ -266,21 +273,21 @@ export default function ShippingForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-center justify-between">
           {/* Ship From Section */}
           <div className="flex flex-col gap-4 justify-center w-full">
-            <h2 className="text-2xl font-bold mb-6">Ship From</h2>
+            <h2 className="text-2xl font-bold mb-6">{t.quote.shipFrom}</h2>
             <div>
               <Label htmlFor="shipFromCountry" className="flex items-center">
-                Country
+                {t.quote.form.country}
               </Label>
               <Select
                 onValueChange={(value) => setValue("shipFrom.country", value)}
                 value={watch("shipFrom.country")}
               >
                 <SelectTrigger className="w-full mt-2 border-gray-300 dark:border-gray-100">
-                  <SelectValue placeholder="Select a Country" />
+                  <SelectValue placeholder={t.quote.form.selectCountry} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Country</SelectLabel>
+                    <SelectLabel>{t.quote.form.country}</SelectLabel>
                     <SelectItem value="United States">United States</SelectItem>
                     <SelectItem value="Canada">Canada</SelectItem>
                     <SelectItem value="Mexico">Mexico</SelectItem>
@@ -290,8 +297,10 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="shipFromPostalCode" className="flex items-center">
-                ZIP Code{" "}
-                <span className="text-gray-500 text-sm ml-1">(optional)</span>
+                {t.quote.form.zipCode}{" "}
+                <span className="text-gray-500 text-sm ml-1">
+                  {t.quote.form.optional}
+                </span>
               </Label>
               <Input
                 {...register("shipFrom.postalCode", {
@@ -310,13 +319,13 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="shipFromCity" className="flex items-center">
-                City
+                {t.quote.form.city}
               </Label>
               <Input
                 {...register("shipFrom.city", {
                   required: {
                     value: true,
-                    message: "City is required",
+                    message: t.quote.validation.cityRequired,
                   },
                 })}
                 id="shipFromCity"
@@ -332,13 +341,13 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="shipFromState" className="flex items-center">
-                State
+                {t.quote.form.state}
               </Label>
               <Input
                 {...register("shipFrom.state", {
                   required: {
                     value: true,
-                    message: "State is required",
+                    message: t.quote.validation.stateRequired,
                   },
                 })}
                 id="shipFromState"
@@ -356,20 +365,20 @@ export default function ShippingForm() {
 
           {/* Ship To Section */}
           <div className="flex flex-col gap-4 justify-center w-full">
-            <h2 className="text-2xl font-bold mb-6">Ship To</h2>
+            <h2 className="text-2xl font-bold mb-6">{t.quote.shipTo}</h2>
             <div>
               <Label htmlFor="shipFromCountry" className="flex items-center">
-                Country
+                {t.quote.form.country}
               </Label>
               <Select
                 onValueChange={(value) => setValue("shipTo.country", value)}
               >
                 <SelectTrigger className="w-full mt-2 border-gray-300 dark:border-gray-100">
-                  <SelectValue placeholder="Select a Country" />
+                  <SelectValue placeholder={t.quote.form.selectCountry} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Country</SelectLabel>
+                    <SelectLabel>{t.quote.form.country}</SelectLabel>
                     <SelectItem value="United States">United States</SelectItem>
                     <SelectItem value="Canada">Canada</SelectItem>
                     <SelectItem value="Mexico">Mexico</SelectItem>
@@ -379,8 +388,10 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="shipFromPostalCode" className="flex items-center">
-                ZIP Code{" "}
-                <span className="text-gray-500 text-sm ml-1">(optional)</span>
+                {t.quote.form.zipCode}{" "}
+                <span className="text-gray-500 text-sm ml-1">
+                  {t.quote.form.optional}
+                </span>
               </Label>
               <Input
                 {...register("shipTo.postalCode", {
@@ -399,13 +410,13 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="shipFromCity" className="flex items-center">
-                City
+                {t.quote.form.city}
               </Label>
               <Input
                 {...register("shipTo.city", {
                   required: {
                     value: true,
-                    message: "City is required",
+                    message: t.quote.validation.cityRequired,
                   },
                 })}
                 id="shipFromCity"
@@ -421,13 +432,13 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="shipFromState" className="flex items-center">
-                State
+                {t.quote.form.state}
               </Label>
               <Input
                 {...register("shipTo.state", {
                   required: {
                     value: true,
-                    message: "State is required",
+                    message: t.quote.validation.stateRequired,
                   },
                 })}
                 id="shipFromState"
@@ -445,31 +456,33 @@ export default function ShippingForm() {
         </div>
 
         <div className="flex flex-col gap-4 justify-center w-full">
-          <h2 className="text-2xl font-bold mb-6">Equipment Details</h2>
+          <h2 className="text-2xl font-bold mb-6">
+            {t.quote.equipmentDetails}
+          </h2>
 
           {/* Equipment Identification */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <Label htmlFor="year" className="flex items-center">
-                Year
+                {t.quote.form.year}
               </Label>
               <Input
                 {...register("year", {
                   required: {
                     value: true,
-                    message: "Year is required",
+                    message: t.quote.validation.yearRequired,
                   },
                   minLength: {
                     value: 4,
-                    message: "Year must be 4 digits",
+                    message: t.quote.validation.yearDigits,
                   },
                   maxLength: {
                     value: 4,
-                    message: "Year must be 4 digits",
+                    message: t.quote.validation.yearDigits,
                   },
                   pattern: {
                     value: /^\d{4}$/,
-                    message: "Please enter a valid 4-digit year",
+                    message: t.quote.validation.validYear,
                   },
                 })}
                 placeholder="2020"
@@ -483,21 +496,21 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="make" className="flex items-center">
-                Make
+                {t.quote.form.make}
               </Label>
               <Input
                 {...register("make", {
                   required: {
                     value: true,
-                    message: "Make is required",
+                    message: t.quote.validation.makeRequired,
                   },
                   minLength: {
                     value: 2,
-                    message: "Make must be at least 2 characters",
+                    message: t.quote.validation.makeMinLength,
                   },
                   maxLength: {
                     value: 50,
-                    message: "Make must be at most 50 characters",
+                    message: t.quote.validation.makeMaxLength,
                   },
                 })}
                 placeholder="Caterpillar"
@@ -511,21 +524,21 @@ export default function ShippingForm() {
             </div>
             <div>
               <Label htmlFor="model" className="flex items-center">
-                Model
+                {t.quote.form.model}
               </Label>
               <Input
                 {...register("model", {
                   required: {
                     value: true,
-                    message: "Model is required",
+                    message: t.quote.validation.modelRequired,
                   },
                   minLength: {
                     value: 2,
-                    message: "Model must be at least 2 characters",
+                    message: t.quote.validation.modelMinLength,
                   },
                   maxLength: {
                     value: 50,
-                    message: "Model must be at most 50 characters",
+                    message: t.quote.validation.modelMaxLength,
                   },
                 })}
                 placeholder="CAT 320"
@@ -543,7 +556,7 @@ export default function ShippingForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <Label htmlFor="isOperable" className="flex items-center">
-                Is the equipment operable?
+                {t.quote.form.isOperable}
               </Label>
               <Select
                 onValueChange={(value) =>
@@ -552,21 +565,27 @@ export default function ShippingForm() {
                 value={watch("isOperable") ? "true" : "false"}
               >
                 <SelectTrigger className="w-full mt-2 border-gray-300 dark:border-gray-100">
-                  <SelectValue placeholder="Select an option" />
+                  <SelectValue placeholder={t.quote.form.selectOption} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Equipment Status</SelectLabel>
-                    <SelectItem value="true">Yes, it's operable</SelectItem>
-                    <SelectItem value="false">No, it's not operable</SelectItem>
+                    <SelectLabel>{t.quote.form.equipmentStatus}</SelectLabel>
+                    <SelectItem value="true">
+                      {t.quote.form.yesOperable}
+                    </SelectItem>
+                    <SelectItem value="false">
+                      {t.quote.form.noOperable}
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
             <div>
               <Label htmlFor="weight" className="flex items-center">
-                Estimated weight (lbs){" "}
-                <span className="text-gray-500 text-sm ml-1">(optional)</span>
+                {t.quote.form.weight}{" "}
+                <span className="text-gray-500 text-sm ml-1">
+                  {t.quote.form.optional}
+                </span>
               </Label>
               <Input
                 {...register("weight")}
@@ -579,8 +598,10 @@ export default function ShippingForm() {
           {/* Shipping Preferences */}
           <div className="flex flex-col gap-4 justify-center w-full">
             <Label className="flex items-center">
-              Preferred Shipping Date{" "}
-              <span className="text-gray-500 text-sm ml-1">(optional)</span>
+              {t.quote.form.preferredDate}{" "}
+              <span className="text-gray-500 text-sm ml-1">
+                {t.quote.form.optional}
+              </span>
             </Label>
             <Popover>
               <PopoverTrigger asChild>
@@ -590,7 +611,11 @@ export default function ShippingForm() {
                   className="data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal cursor-pointer border-gray-300 dark:border-gray-100"
                 >
                   <CalendarIcon />
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
+                  {date ? (
+                    format(date, "PPP")
+                  ) : (
+                    <span>{t.quote.form.pickDate}</span>
+                  )}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0">
@@ -602,21 +627,21 @@ export default function ShippingForm() {
 
         <div className="md:col-span-2">
           <Label htmlFor="message" className="flex items-center">
-            Additional Details
+            {t.quote.form.additionalDetails}
           </Label>
           <Textarea
             {...register("message", {
-              required: "Message is required",
+              required: t.quote.validation.messageRequired,
               minLength: {
                 value: 10,
-                message: "Minimum length is 10 characters",
+                message: t.quote.validation.messageMinLength,
               },
               maxLength: {
                 value: 100,
-                message: "Maximum length is 100 characters",
+                message: t.quote.validation.messageMaxLength,
               },
             })}
-            placeholder="Enter your Message"
+            placeholder={t.quote.form.enterMessage}
             className="mt-2 h-30 w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none border-gray-300 dark:border-gray-100"
           />
           {errors.message && (
@@ -631,7 +656,7 @@ export default function ShippingForm() {
             {...register("agreeToSMS", {
               required: {
                 value: true,
-                message: "You must accept the terms and conditions to continue",
+                message: t.quote.validation.termsRequired,
               },
             })}
             onCheckedChange={(value) =>
@@ -642,8 +667,7 @@ export default function ShippingForm() {
             className="border-primary-600"
           />
           <Label htmlFor="agreeToSMS" className="text-sm">
-            Accept the terms and conditions and allow myself to be contacted by
-            call or SMS.
+            {t.quote.form.acceptTerms}
           </Label>
         </div>
         {errors.agreeToSMS && (
@@ -662,10 +686,10 @@ export default function ShippingForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="animate-spin" />
-              <span>Submitting...</span>
+              <span>{t.quote.form.submitting}</span>
             </>
           ) : (
-            <span>Submit</span>
+            <span>{t.quote.form.submit}</span>
           )}
         </Button>
       </form>

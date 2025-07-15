@@ -1,10 +1,12 @@
 ---
 import Counter from "@/components/Counter";
 import SectionTitle from "@/components/SectionTitle.astro";
+
+const { t } = Astro.props;
 ---
 
 <section class="container">
-  <SectionTitle title="Driving our Success" />
+  <SectionTitle title={t.metrics.title} />
   <div class="bg-[#D5D4D4] dark:bg-background border py-5 mx-5 rounded-2xl">
     <Counter client:visible />
   </div>
