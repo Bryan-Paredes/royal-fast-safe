@@ -33,11 +33,6 @@
       ]
     }
   ],
-  "functions": {
-    "src/pages/index.astro": {
-      "maxDuration": 10
-    }
-  },
   "cleanUrls": true,
   "trailingSlash": false
 }
