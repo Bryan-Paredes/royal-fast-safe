@@ -46,6 +46,11 @@ export function getLocaleURL(pathname: string, locale: ValidLocale): string {
 
     const pathWithoutLocale = segments.length > 0 ? `/${segments.join('/')}` : '';
 
-    // Siempre agregar el prefijo de idioma
+    // Si es el idioma por defecto y estamos en la raíz, no agregar prefijo
+    if (locale === defaultLocale && pathWithoutLocale === '') {
+        return '/';
+    }
+
+    // Para otros idiomas o rutas específicas, agregar el prefijo
     return `/${locale}${pathWithoutLocale}`;
 } 
